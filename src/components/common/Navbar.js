@@ -12,7 +12,7 @@ import { faExclamationCircle, faBell } from "@fortawesome/free-solid-svg-icons";
 import ClientReportForm from "../ReportIssues/ReportIssuesForm";
 import Notification from "./Notification"; 
 
-const ENDPOINT = "http://localhost:4000"; 
+const ENDPOINT = "https://scheduler-server-n9z6.onrender.com"; 
 
 const Navbar = () => {
   const dispatch = useDispatch();
