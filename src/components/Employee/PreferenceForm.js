@@ -3,20 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   createPreference,
   updatePreference,
+  getPreferenceByUser,
 } from "../../redux/modules/preferences";
 
 const PreferenceForm = ({ preference = {}, isEdit = false }) => {
   const [formData, setFormData] = useState(preference);
   const [submissionStatus, setSubmissionStatus] = useState(null); // State for submission feedback
   const dispatch = useDispatch();
-  const { loading, error } = useSelector((state) => state.preferences);
+  const { loading, error, preferences } = useSelector((state) => state.preferences);
   const user = useSelector((state) => state.users.user);
 
   useEffect(() => {
     if (user && user._id) {
       setFormData((prevFormData) => ({ ...prevFormData, user: user._id }));
+      dispatch(getPreferenceByUser(user._id));
     }
-  }, [user]);
+  }, [user, dispatch]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -120,6 +122,34 @@ const PreferenceForm = ({ preference = {}, isEdit = false }) => {
           {submissionStatus && <p>{submissionStatus}</p>} {/* Display submission feedback */}
         </form>
       </div>
+
+      <h2 className="manage-leave-form-title">Submitted Preferences</h2>
+      <table className="manage-leave-requests-table">
+        <thead>
+          <tr>
+            <th>Preferred Shift</th>
+            <th>Preferred Off Days</th>
+            <th>OU</th>
+            <th>Week</th>
+          </tr>
+        </thead>
+        <tbody>
+          {preferences.length === 0 ? (
+            <tr>
+              <td colSpan="4" align="center">No preferences found.</td>
+            </tr>
+          ) : (
+            preferences.map((pref) => (
+              <tr key={pref._id}>
+                <td>{pref.preferredShift}</td>
+                <td>{pref.preferredOffDays}</td>
+                <td>{pref.OU}</td>
+                <td>{pref.week}</td>
+              </tr>
+            ))
+          )}
+        </tbody>
+      </table>
     </div>
   );
 };

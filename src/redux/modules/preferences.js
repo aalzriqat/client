@@ -1,4 +1,3 @@
-
 import { api } from "../../utils";
 
 // Action Types
@@ -58,6 +57,10 @@ const GET_PREFERENCE_BY_SHIFT_AND_OFFDAY_SUCCESS =
   "GET_PREFERENCE_BY_SHIFT_AND_OFFDAY_SUCCESS";
 const GET_PREFERENCE_BY_SHIFT_AND_OFFDAY_FAIL =
   "GET_PREFERENCE_BY_SHIFT_AND_OFFDAY_FAIL";
+
+const GET_USER_PREFERENCE_REQUEST = "GET_USER_PREFERENCE_REQUEST";
+const GET_USER_PREFERENCE_SUCCESS = "GET_USER_PREFERENCE_SUCCESS";
+const GET_USER_PREFERENCE_FAIL = "GET_USER_PREFERENCE_FAIL";
 
 // Action Creators
 const createPreferenceRequest = () => ({ type: CREATE_PREFERENCE_REQUEST });
@@ -194,13 +197,23 @@ const getPreferenceByShiftAndOffDayFail = (error) => ({
   payload: error,
 });
 
+const getUserPreferenceRequest = () => ({
+  type: GET_USER_PREFERENCE_REQUEST,
+});
+const getUserPreferenceSuccess = (data) => ({
+  type: GET_USER_PREFERENCE_SUCCESS,
+  payload: data,
+});
+const getUserPreferenceFail = (error) => ({
+  type: GET_USER_PREFERENCE_FAIL,
+  payload: error,
+});
+
 // Async Actions (Thunks)
 export const createPreference = (preference) => async (dispatch) => {
   try {
-    
     dispatch(createPreferenceRequest());
     const { data } = await api.post("preferences/create", preference);
-    
     dispatch(createPreferenceSuccess(data));
   } catch (error) {
     console.error("Error in createPreference:", error.response?.data || error.message);
@@ -330,6 +343,16 @@ export const getPreferenceByShiftAndOffDay =
     }
   };
 
+export const getUserPreference = (userId) => async (dispatch) => {
+  try {
+    dispatch(getUserPreferenceRequest());
+    const { data } = await api.get(`preferences/user/${userId}`);
+    dispatch(getUserPreferenceSuccess(data));
+  } catch (error) {
+    dispatch(getUserPreferenceFail(error.response?.data || error.message));
+  }
+};
+
 // Initial State
 const initialState = {
   preferences: [],
@@ -352,6 +375,7 @@ export default function reducer(state = initialState, action) {
     case GET_PREFERENCE_BY_WEEK_AND_SHIFT_REQUEST:
     case GET_PREFERENCE_BY_WEEK_AND_OFFDAY_REQUEST:
     case GET_PREFERENCE_BY_SHIFT_AND_OFFDAY_REQUEST:
+    case GET_USER_PREFERENCE_REQUEST:
       return { ...state, loading: true };
 
     case CREATE_PREFERENCE_SUCCESS:
@@ -377,6 +401,7 @@ export default function reducer(state = initialState, action) {
     case GET_PREFERENCE_BY_WEEK_AND_SHIFT_SUCCESS:
     case GET_PREFERENCE_BY_WEEK_AND_OFFDAY_SUCCESS:
     case GET_PREFERENCE_BY_SHIFT_AND_OFFDAY_SUCCESS:
+    case GET_USER_PREFERENCE_SUCCESS:
       return { ...state, loading: false, preferences: action.payload };
     case DELETE_PREFERENCE_SUCCESS:
       return {
@@ -399,6 +424,7 @@ export default function reducer(state = initialState, action) {
     case GET_PREFERENCE_BY_WEEK_AND_SHIFT_FAIL:
     case GET_PREFERENCE_BY_WEEK_AND_OFFDAY_FAIL:
     case GET_PREFERENCE_BY_SHIFT_AND_OFFDAY_FAIL:
+    case GET_USER_PREFERENCE_FAIL:
       return { ...state, loading: false, error: action.payload };
 
     default:
