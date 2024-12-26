@@ -21,7 +21,6 @@ const AllPreferences = () => {
 
     useEffect(() => {
         if (preferencesFromStore.length > 0) {
-            console.log('Preferences from store:', preferencesFromStore); // Debugging statement
             setPreferences(preferencesFromStore);
         }
     }, [preferencesFromStore, setPreferences]);
@@ -31,7 +30,6 @@ const AllPreferences = () => {
     };
 
     const filteredPreferences = useMemo(() => {
-        console.log('Filtering preferences with search query:', searchQuery); // Debugging statement
         try {
             return preferences.filter((preference) => {
                 const { user, preferredShift, preferredOffDays, week } = preference;
@@ -75,7 +73,6 @@ const AllPreferences = () => {
     if (error) return <p>Error: {error}</p>;
     if (!preferences.length) return <p>No preferences found.</p>;
 
-    console.log('Filtered Preferences:', filteredPreferences); // Debugging statement
 
     return (
         <div className='main'>

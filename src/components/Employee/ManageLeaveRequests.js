@@ -26,7 +26,6 @@ const ManageLeaveRequests = () => {
 
   useEffect(() => {
     if (loggedInUser) {
-      console.log('Fetching leave requests for user:', loggedInUser);
       dispatch(fetchLeaveRequestsByUserId(loggedInUser));
     }
   }, [dispatch, loggedInUser]);
@@ -100,9 +99,6 @@ const ManageLeaveRequests = () => {
   // Check if there is at least one pending request
   const hasPendingRequests = leaveRequests.some(request => request.status === 'pending');
 
-  // Debugging logs
-  console.log('Logged in user:', loggedInUser);
-  console.log('Leave requests:', leaveRequests);
 
   return (
     <div className="main manage-leave-main">

@@ -24,8 +24,7 @@ const AllSwapRequests = () => {
     fetchData();
   }, [dispatch]); // Empty dependency array ensures this runs on mount
 
-  // Debugging: Log the swaps array
-  console.log('Swaps:', swaps);
+
 
   const getUniqueValues = useCallback((key) => {
     const values = swaps.flatMap((swap) => {
@@ -61,7 +60,6 @@ const AllSwapRequests = () => {
   };
 
   const filteredSwaps = useMemo(() => {
-    console.log('Filtering swaps'); // Debugging statement
     try {
       return swaps;
     } catch (error) {

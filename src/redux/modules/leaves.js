@@ -38,7 +38,6 @@ export const fetchLeaveRequestsByUserId = (userId) => async (dispatch) => {
   try {
     dispatch({ type: FETCH_LEAVE_REQUESTS_REQUEST });
     const { data } = await api.get(`/leaves/user/${userId}`);
-    console.log('API response:', data); // Log the API response
     dispatch({ type: FETCH_LEAVE_REQUESTS_SUCCESS, payload: data });
   } catch (error) {
     console.error('API error:', error); // Log any errors
@@ -106,12 +105,10 @@ const initialState = {
 
 // Reducer
 export default function reducer(state = initialState, action) {
-  console.log('Action received:', action); // Log the action
   switch (action.type) {
     case FETCH_LEAVE_REQUESTS_REQUEST:
       return { ...state, status: 'loading', message: null };
     case FETCH_LEAVE_REQUESTS_SUCCESS:
-      console.log('Updating state with leave requests:', action.payload); // Log the payload
       return { ...state, status: 'succeeded', leaveRequests: action.payload, message: 'Leave requests fetched successfully' };
     case FETCH_LEAVE_REQUESTS_FAIL:
       return { ...state, status: 'failed', error: action.payload, message: 'Failed to fetch leave requests' };

@@ -46,7 +46,6 @@ const UploadSchedule = () => {
 
   // Function to render duplicate data in a table
   const renderDuplicateTable = (duplicates) => {
-    console.log("Rendering Duplicate Table:", duplicates); // Debugging statement
     if (duplicates.length > 0) {
       return (
         <div>
