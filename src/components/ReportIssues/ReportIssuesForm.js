@@ -9,7 +9,7 @@ const ClientReportForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(reportIssues({ user: user.username, issue })); // Use the logged-in user's username
+    dispatch(reportIssues({ user: user.id, issue })); // Use the logged-in user's username
     setIssue('');
   };
 

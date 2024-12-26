@@ -12,6 +12,7 @@ const SwapRequestFormContent = ({
   const hasApprovedSwap = user.swapRequests.some(request => request.status === "approved");
 
   return (
+    
     <form onSubmit={handleSubmit}>
       <label>Select a schedule:</label>
       <p className="description">
