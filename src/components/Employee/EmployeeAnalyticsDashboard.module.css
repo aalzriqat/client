@@ -1,0 +1,53 @@
+/* src/components/Employee/EmployeeAnalyticsDashboard.module.css */
+
+.dashboardContainer {
+  /* Replaces .employee-analytics-dashboard-container */
+  padding: var(--space-lg);
+}
+
+.pageTitle { /* For the <h2>Employee Analytics Dashboard</h2> */
+  font-size: var(--font-size-h2);
+  color: var(--color-brand-secondary);
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.section {
+  /* Replaces .employee-analytics-section */
+  margin-bottom: var(--space-xl); /* Was 20px */
+  padding: var(--space-lg); /* Was 15px */
+  border: var(--border-width-sm) solid var(--color-border); /* Was #eee */
+  border-radius: var(--border-radius-md); /* Was 5px */
+  background-color: var(--color-surface); /* Was #fff */
+  box-shadow: var(--shadow-sm);
+}
+
+.sectionTitle {
+  /* Replaces .employee-analytics-section-title */
+  margin-top: 0;
+  border-bottom: var(--border-width-sm) solid var(--color-border); /* Was #ddd */
+  padding-bottom: var(--space-md); /* Was 10px */
+  font-size: var(--font-size-h3); /* Was 1.3em */
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.dataPoint {
+  /* Replaces .employee-analytics-data-point */
+  margin: var(--space-sm) 0; /* Was 5px 0 */
+  font-size: var(--font-size-md); /* Was 1.1em, normalized to base */
+  color: var(--color-text-muted);
+}
+
+.dataPoint strong {
+  color: var(--color-text);
+  font-weight: var(--font-medium);
+}
+
+.note {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-md);
+  display: block;
+  text-align: center;
+}

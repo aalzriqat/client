@@ -1,0 +1,99 @@
+/* src/components/common/Landing.module.css */
+/* Redesigned for "Focused Elegance" */
+
+.landingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-xl);
+  background-color: var(--color-background); /* Very light grey/almost white */
+  background-image: none;
+  /* Optional: Could add very subtle geometric line patterns as SVG background later */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.contentWrapper {
+  max-width: 700px; /* Control max width of content, slightly increased */
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  padding: var(--space-xl) var(--space-xxl);
+  border-radius: 0;
+  box-shadow: none;
+  /* backdrop-filter: none; */
+}
+
+.logo {
+  font-family: var(--font-secondary);
+  font-size: calc(var(--font-size-h1) * 1.5);
+  font-weight: 700;
+  color: var(--color-brand-primary); /* Electric Blue */
+  margin-bottom: var(--space-sm);
+  letter-spacing: -1px;
+  text-shadow: none;
+}
+
+/* LandingTitle component will have its own styling, but ensure it fits this context */
+/* Example placeholder if LandingTitle is simple text: */
+.tagline {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary); /* Near black for high contrast */
+  margin-bottom: var(--space-xxl);
+  max-width: 500px;
+  text-shadow: none;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: var(--line-height-heading);
+  min-height: calc(var(--font-size-xl) * var(--line-height-heading) * 2);
+  display: inline-block;
+  position: relative;
+}
+
+.buttonGroup { /* Was .buttons */
+  display: flex;
+  flex-direction: column; /* Stack buttons on smaller screens by default */
+  align-items: center;
+  gap: var(--space-md); /* Space between buttons */
+  width: 100%;
+  max-width: 320px; /* Max width for the button group */
+  margin: 0 auto; /* Center the button group */
+}
+
+/* Button component will handle its own styling. */
+/* We'll use fullWidth prop on Button component if needed */
+
+/* Responsive adjustments for button group if desired */
+@media (min-width: 480px) { /* Example breakpoint */
+  .buttonGroup {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.cursor {
+  display: inline-block;
+  background-color: var(--color-text-primary); /* Cursor matches tagline text color (near black) */
+  margin-left: var(--space-xs);
+  width: 2px; /* Thinner cursor for minimalist feel */
+  height: calc(var(--font-size-xl) * 0.8);
+  animation: blink 0.7s infinite; /* Faster blink */
+  box-shadow: none;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,43 @@
+/* src/components/Employee/SwapRequestFormContent.module.css */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg); /* Space between elements in the form */
+  margin-top: var(--space-lg); /* Add some space above the form itself */
+}
+
+.label {
+  /* Base styles from _base.css apply */
+  font-weight: var(--font-medium);
+  margin-bottom: var(--space-xs); /* Space between label and select */
+}
+
+.selectField {
+  /* Base select styles from _base.css apply */
+  /* Add specific overrides if needed */
+  padding: var(--space-md); /* Ensure consistent padding */
+}
+
+.optionRequestSent {
+  /* Replaces .option-request-sent from App.css */
+  font-weight: var(--font-bold);
+  color: var(--color-danger-alt); /* Using a red token */
+  background-color: color-mix(in srgb, var(--color-danger-alt) 10%, transparent); /* Light red background for the option */
+}
+
+.noSchedulesMessage {
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: var(--space-md) 0;
+}
+
+.submitButtonContainer {
+  margin-top: var(--space-md); /* Space above the button */
+  display: flex;
+  justify-content: center; /* Or flex-end, or as needed */
+}
+
+/* The Button component will handle its own styling. */
+/* If specific layout for the button within this form is needed, add here. */

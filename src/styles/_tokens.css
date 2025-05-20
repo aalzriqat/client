@@ -1,0 +1,629 @@
+/* src/styles/_tokens.css */
+/* Multi-Theme Support: Focused Elegance (Default), Aurora Flow, Warm Focus, Tech Minimalist, ChronoWeave */
+
+:root { /* Default Theme: Focused Elegance - Light Mode */
+  /* Fonts */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Lato', sans-serif;
+  --font-fallback: "Helvetica", Arial, sans-serif;
+  --font-monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+  /* Focused Elegance - Brand Colors */
+  --fe-color-brand-primary-rgb: 0, 123, 130; /* Teal: #007B82 */
+  --fe-color-brand-secondary-rgb: 20, 54, 100; /* Deep Blue: #143664 */
+
+  /* Focused Elegance - Light Mode Palette */
+  --fe-color-light-bg-rgb: 248, 249, 250; /* #F8F9FA */
+  --fe-color-light-surface-rgb: 255, 255, 255; /* #FFFFFF */
+  --fe-color-light-border-subtle: #E9ECEF;
+  --fe-color-light-border-default: #DEE2E6;
+  --fe-color-light-border-strong: #CED4DA;
+  --fe-color-light-text-primary: #212529;
+  --fe-color-light-text-secondary: #495057;
+  --fe-color-light-text-muted: #6C757D;
+  --fe-color-light-text-disabled: #ADB5BD;
+  --fe-color-light-text-on-primary: #FFFFFF;
+  --fe-color-light-text-on-secondary: #FFFFFF;
+
+  /* Focused Elegance - Semantic Colors - Light Mode */
+  --fe-color-light-success-rgb: 25, 135, 84; /* Green: #198754 */
+  --fe-color-light-warning-rgb: 255, 193, 7; /* Yellow: #FFC107 */
+  --fe-color-light-danger-rgb: 220, 53, 69; /* Red: #DC3545 */
+  --fe-color-light-info-rgb: 13, 202, 240; /* Cyan: #0DCAF0 */
+  
+  /* Focused Elegance - Dark Mode Palette (Defined later in [data-theme="focused-elegance-dark"]) */
+
+  /* --- Generic Mapped Tokens (Default to Focused Elegance Light) --- */
+  --color-brand-primary-rgb: var(--fe-color-brand-primary-rgb);
+  --color-brand-secondary-rgb: var(--fe-color-brand-secondary-rgb); /* Used by some themes if no specific accent */
+  --color-accent-vibrant-rgb: var(--fe-color-brand-primary-rgb); /* Fallback for themes without vibrant accent */
+
+
+  --color-brand-primary: rgb(var(--color-brand-primary-rgb));
+  --color-brand-primary-tint: rgba(var(--color-brand-primary-rgb), 0.1);
+  --color-brand-primary-shade: color-mix(in srgb, rgb(var(--color-brand-primary-rgb)) 85%, black);
+
+  --color-accent-secondary: rgb(var(--color-brand-secondary-rgb)); /* Fallback */
+  --color-accent-secondary-tint: rgba(var(--color-brand-secondary-rgb), 0.1);
+  --color-accent-secondary-shade: color-mix(in srgb, rgb(var(--color-brand-secondary-rgb)) 85%, black);
+  
+  --color-accent-vibrant: rgb(var(--color-accent-vibrant-rgb)); /* Fallback */
+  --color-accent-vibrant-tint: rgba(var(--color-accent-vibrant-rgb), 0.1);
+  --color-accent-vibrant-shade: color-mix(in srgb, rgb(var(--color-accent-vibrant-rgb)) 85%, black);
+
+  --color-background-rgb: var(--fe-color-light-bg-rgb);
+  --color-surface-rgb: var(--fe-color-light-surface-rgb);
+
+  --color-background: rgb(var(--color-background-rgb));
+  --color-surface: rgb(var(--color-surface-rgb));
+  --color-border-subtle: var(--fe-color-light-border-subtle);
+  --color-border-default: var(--fe-color-light-border-default);
+  --color-border-strong: var(--fe-color-light-border-strong);
+  
+  --color-text-primary: var(--fe-color-light-text-primary);
+  --color-text-secondary: var(--fe-color-light-text-secondary);
+  --color-text-muted: var(--fe-color-light-text-muted);
+  --color-text-disabled: var(--fe-color-light-text-disabled);
+  --color-text-on-primary-bg: var(--fe-color-light-text-on-primary);
+  --color-text-on-secondary-bg: var(--fe-color-light-text-on-secondary);
+  --color-text-on-accent-vibrant-bg: var(--fe-color-light-text-on-primary); /* Fallback */
+  --color-text-on-accent-secondary-bg: var(--fe-color-light-text-on-secondary); /* Fallback */
+
+
+  --color-success-rgb: var(--fe-color-light-success-rgb);
+  --color-warning-rgb: var(--fe-color-light-warning-rgb);
+  --color-danger-rgb: var(--fe-color-light-danger-rgb);
+  --color-info-rgb: var(--fe-color-light-info-rgb);
+
+  --color-success: rgb(var(--color-success-rgb));
+  --color-success-bg: rgba(var(--color-success-rgb), 0.1);
+  --color-success-border: rgba(var(--color-success-rgb), 0.3);
+  --color-success-text: color-mix(in srgb, rgb(var(--color-success-rgb)) 70%, black);
+
+  --color-warning: rgb(var(--color-warning-rgb));
+  --color-warning-bg: rgba(var(--color-warning-rgb), 0.15);
+  --color-warning-border: rgba(var(--color-warning-rgb), 0.4);
+  --color-warning-text: color-mix(in srgb, rgb(var(--color-warning-rgb)) 70%, black);
+
+  --color-danger: rgb(var(--color-danger-rgb));
+  --color-danger-bg: rgba(var(--color-danger-rgb), 0.1);
+  --color-danger-border: rgba(var(--color-danger-rgb), 0.3);
+  --color-danger-text: var(--fe-color-light-text-on-primary); /* White text on red */
+
+  --color-info: rgb(var(--color-info-rgb));
+  --color-info-bg: rgba(var(--color-info-rgb), 0.1);
+  --color-info-border: rgba(var(--color-info-rgb), 0.3);
+  --color-info-text: color-mix(in srgb, rgb(var(--color-info-rgb)) 70%, black);
+  
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-dark-overlay: rgba(0, 0, 0, 0.6);
+
+  /* Structural Tokens (Consistent across themes, but can be overridden if a theme demands it) */
+  --space-unit: 4px;
+  --space-xxs: calc(0.5 * var(--space-unit));
+  --space-xs:  calc(1 * var(--space-unit));
+  --space-sm:  calc(2 * var(--space-unit));
+  --space-md:  calc(4 * var(--space-unit));
+  --space-lg:  calc(6 * var(--space-unit));
+  --space-xl:  calc(8 * var(--space-unit));
+  --space-xxl: calc(12 * var(--space-unit));
+  --space-xxxl: calc(16 * var(--space-unit));
+
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-h6: 1.25rem;
+  --font-size-h5: 1.5rem;
+  --font-size-h4: 1.75rem;
+  --font-size-h3: 2rem;
+  --font-size-h2: 2.25rem;
+  --font-size-h1: 2.75rem;
+  
+  --line-height-tight: 1.25;
+  --line-height-base: 1.6;
+  --line-height-heading: 1.3;
+
+  --border-width-sm: 1px;
+  --border-width-md: 2px;
+
+  --border-radius-xs: 2px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
+  --border-radius-xl: 12px;
+  --border-radius-round: 50%;
+  --border-radius-pill: 9999px;
+
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-xxl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,0.04);
+
+  --transition-duration-fast: 100ms;
+  --transition-duration-short: 200ms;
+  --transition-duration-base: 300ms;
+  --transition-timing-function-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-base: all var(--transition-duration-base) var(--transition-timing-function-ease);
+  --transition-colors: background-color var(--transition-duration-short) var(--transition-timing-function-ease),
+                       border-color var(--transition-duration-short) var(--transition-timing-function-ease),
+                       color var(--transition-duration-short) var(--transition-timing-function-ease),
+                       fill var(--transition-duration-short) var(--transition-timing-function-ease),
+                       stroke var(--transition-duration-short) var(--transition-timing-function-ease),
+                       box-shadow var(--transition-duration-short) var(--transition-timing-function-ease);
+
+  --z-index-default: 1;
+  --z-index-sticky: 1020;
+  --z-index-dropdown: 1030;
+  --z-index-sidebar: 1040;
+  --z-index-modal-backdrop: 1050;
+  --z-index-modal: 1060;
+  --z-index-popover: 1070;
+  --z-index-tooltip: 1080;
+  --z-index-notification: 1090;
+}
+
+/* --- Theme: Focused Elegance - Dark --- */
+[data-theme="focused-elegance-dark"] {
+  --fe-color-dark-bg-rgb: 12, 12, 30; /* #0C0C1E */
+  --fe-color-dark-surface-rgb: 6, 7, 20; /* #060714 */
+  --fe-color-dark-border-subtle: rgb(var(--fe-color-dark-surface-rgb)); /* Match surface or slightly lighter */
+  --fe-color-dark-border-default: #3A3A3A; /* From original tokens */
+  --fe-color-dark-border-strong: #4D4D4D; /* From original tokens */
+  --fe-color-dark-text-primary: #FBFBFB;
+  --fe-color-dark-text-secondary: #BDBDBD; /* Lighter for dark mode */
+  --fe-color-dark-text-muted: #8A8A8A;
+  --fe-color-dark-text-disabled: #757575;
+
+  /* Map generic tokens */
+  --color-brand-primary-rgb: var(--fe-color-brand-primary-rgb);
+  --color-brand-secondary-rgb: var(--fe-color-brand-secondary-rgb);
+  --color-accent-vibrant-rgb: var(--fe-color-brand-primary-rgb); /* Fallback */
+
+  --color-background-rgb: var(--fe-color-dark-bg-rgb);
+  --color-surface-rgb: var(--fe-color-dark-surface-rgb);
+  --color-border-subtle: var(--fe-color-dark-border-subtle);
+  --color-border-default: var(--fe-color-dark-border-default);
+  --color-border-strong: var(--fe-color-dark-border-strong);
+  --color-text-primary: var(--fe-color-dark-text-primary);
+  --color-text-secondary: var(--fe-color-dark-text-secondary);
+  --color-text-muted: var(--fe-color-dark-text-muted);
+  --color-text-disabled: var(--fe-color-dark-text-disabled);
+  
+  /* Semantic colors for Focused Elegance Dark (can be same as light if contrast works, or adjusted) */
+  --color-success-rgb: 40, 167, 69; /* Brighter Green */
+  --color-warning-rgb: 255, 204, 51; /* Brighter Yellow */
+  --color-danger-rgb: 239, 83, 80; /* Brighter Red */
+  --color-info-rgb: 33, 150, 243; /* Brighter Blue */
+
+  --color-dark-overlay: rgba(var(--fe-color-dark-bg-rgb), 0.7);
+}
+
+/* --- Theme: Aurora Flow --- */
+[data-theme="aurora-flow-light"] {
+  --af-color-bg-light-rgb: 239, 244, 247; /* #EFF4F7 */
+  --af-color-surface-light-rgb: 247, 249, 252; /* #F7F9FC */
+  --af-color-brand-primary-rgb: 0, 167, 157; /* Luminous Teal: #00A79D */
+  --af-color-accent-vibrant-rgb: 160, 32, 240; /* Vibrant Magenta/Violet: #A020F0 */
+  --af-color-light-border-subtle: #DDE4E8;
+  --af-color-light-border-default: #CDD7DD;
+  --af-color-light-border-strong: #BCC8CF;
+  --af-color-light-text-primary: #1A2B38;
+  --af-color-light-text-secondary: #4A5C6A;
+  --af-color-light-text-muted: #7B8C9A;
+  --af-color-light-text-disabled: #AAB8C2;
+  --af-color-light-text-on-primary: #FFFFFF;
+  --af-color-light-text-on-accent-vibrant: #FFFFFF;
+  --af-color-light-success-rgb: 30, 150, 90;
+  --af-color-light-warning-rgb: 255, 180, 0;
+  --af-color-light-danger-rgb: 210, 40, 60;
+  --af-color-light-info-rgb: 10, 180, 220;
+
+  /* Map generic tokens */
+  --color-brand-primary-rgb: var(--af-color-brand-primary-rgb);
+  --color-accent-vibrant-rgb: var(--af-color-accent-vibrant-rgb);
+  --color-background-rgb: var(--af-color-bg-light-rgb);
+  --color-surface-rgb: var(--af-color-surface-light-rgb);
+  --color-border-subtle: var(--af-color-light-border-subtle);
+  --color-border-default: var(--af-color-light-border-default);
+  --color-border-strong: var(--af-color-light-border-strong);
+  --color-text-primary: var(--af-color-light-text-primary);
+  --color-text-secondary: var(--af-color-light-text-secondary);
+  --color-text-muted: var(--af-color-light-text-muted);
+  --color-text-disabled: var(--af-color-light-text-disabled);
+  --color-text-on-primary-bg: var(--af-color-light-text-on-primary);
+  --color-text-on-accent-vibrant-bg: var(--af-color-light-text-on-accent-vibrant);
+  --color-success-rgb: var(--af-color-light-success-rgb);
+  --color-warning-rgb: var(--af-color-light-warning-rgb);
+  --color-danger-rgb: var(--af-color-light-danger-rgb);
+  --color-info-rgb: var(--af-color-light-info-rgb);
+  --color-dark-overlay: rgba(10, 25, 47, 0.7); /* Aurora dark bg for overlay */
+}
+
+[data-theme="aurora-flow-dark"] {
+  --af-color-bg-dark-rgb: 10, 25, 47; /* Midnight Blue: #0A192F */
+  --af-color-surface-dark-rgb: 23, 42, 69; /* Dark Slate Blue: #172A45 */
+  --af-color-brand-primary-rgb: 0, 167, 157; /* Luminous Teal */
+  --af-color-accent-vibrant-rgb: 170, 50, 250; /* Slightly brighter Magenta for dark */
+  --af-color-dark-border-subtle: #2A3F5A;
+  --af-color-dark-border-default: #3A506B;
+  --af-color-dark-border-strong: #4D6580;
+  --af-color-dark-text-primary: #E6F1FF;
+  --af-color-dark-text-secondary: #B0C4DE;
+  --af-color-dark-text-muted: #8A9AAF;
+  --af-color-dark-text-disabled: #6B7A8F;
+  --af-color-dark-text-on-primary: #FFFFFF;
+  --af-color-dark-text-on-accent-vibrant: #FFFFFF;
+  --af-color-dark-success-rgb: 40, 180, 100;
+  --af-color-dark-warning-rgb: 255, 190, 40;
+  --af-color-dark-danger-rgb: 230, 70, 90;
+  --af-color-dark-info-rgb: 30, 190, 230;
+
+  /* Map generic tokens */
+  --color-brand-primary-rgb: var(--af-color-brand-primary-rgb);
+  --color-accent-vibrant-rgb: var(--af-color-accent-vibrant-rgb);
+  --color-background-rgb: var(--af-color-bg-dark-rgb);
+  --color-surface-rgb: var(--af-color-surface-dark-rgb);
+  --color-border-subtle: var(--af-color-dark-border-subtle);
+  --color-border-default: var(--af-color-dark-border-default);
+  --color-border-strong: var(--af-color-dark-border-strong);
+  --color-text-primary: var(--af-color-dark-text-primary);
+  --color-text-secondary: var(--af-color-dark-text-secondary);
+  --color-text-muted: var(--af-color-dark-text-muted);
+  --color-text-disabled: var(--af-color-dark-text-disabled);
+  --color-text-on-primary-bg: var(--af-color-dark-text-on-primary);
+  --color-text-on-accent-vibrant-bg: var(--af-color-dark-text-on-accent-vibrant);
+  --color-success-rgb: var(--af-color-dark-success-rgb);
+  --color-warning-rgb: var(--af-color-dark-warning-rgb);
+  --color-danger-rgb: var(--af-color-dark-danger-rgb);
+  --color-info-rgb: var(--af-color-dark-info-rgb);
+  --color-dark-overlay: rgba(var(--af-color-bg-dark-rgb), 0.7);
+}
+
+/* --- Theme: Warm Focus --- */
+[data-theme="warm-focus-light"] {
+  --wf-color-bg-light-rgb: 250, 247, 242; /* #FAF7F2 */
+  --wf-color-surface-light-rgb: 253, 251, 247; /* #FDFBF7 */
+  --wf-color-brand-primary-rgb: 217, 95, 44; /* Burnt Orange: #D95F2C */
+  --wf-color-accent-secondary-rgb: 122, 138, 107; /* Muted Olive Green: #7A8A6B */
+  --wf-color-light-border-subtle: #EAE6DE;
+  --wf-color-light-border-default: #DCD5C9;
+  --wf-color-light-border-strong: #C8BFB0;
+  --wf-color-light-text-primary: #3D352A;
+  --wf-color-light-text-secondary: #5C5347;
+  --wf-color-light-text-muted: #8C7F70;
+  --wf-color-light-text-disabled: #B0A597;
+  --wf-color-light-text-on-primary: #FFFFFF;
+  --wf-color-light-text-on-accent-secondary: #FFFFFF;
+  --wf-color-light-success-rgb: 60, 150, 60;
+  --wf-color-light-warning-rgb: 240, 160, 0;
+  --wf-color-light-danger-rgb: 190, 40, 40;
+  --wf-color-light-info-rgb: 70, 130, 180;
+
+  /* Map generic tokens */
+  --color-brand-primary-rgb: var(--wf-color-brand-primary-rgb);
+  --color-accent-secondary-rgb: var(--wf-color-accent-secondary-rgb);
+  --color-background-rgb: var(--wf-color-bg-light-rgb);
+  --color-surface-rgb: var(--wf-color-surface-light-rgb);
+  --color-border-subtle: var(--wf-color-light-border-subtle);
+  --color-border-default: var(--wf-color-light-border-default);
+  --color-border-strong: var(--wf-color-light-border-strong);
+  --color-text-primary: var(--wf-color-light-text-primary);
+  --color-text-secondary: var(--wf-color-light-text-secondary);
+  --color-text-muted: var(--wf-color-light-text-muted);
+  --color-text-disabled: var(--wf-color-light-text-disabled);
+  --color-text-on-primary-bg: var(--wf-color-light-text-on-primary);
+  --color-text-on-accent-secondary-bg: var(--wf-color-light-text-on-accent-secondary);
+  --color-success-rgb: var(--wf-color-light-success-rgb);
+  --color-warning-rgb: var(--wf-color-light-warning-rgb);
+  --color-danger-rgb: var(--wf-color-light-danger-rgb);
+  --color-info-rgb: var(--wf-color-light-info-rgb);
+  --color-dark-overlay: rgba(44, 42, 42, 0.7); /* Warm Focus dark bg for overlay */
+}
+
+[data-theme="warm-focus-dark"] {
+  --wf-color-bg-dark-rgb: 44, 42, 42; /* #2C2A2A */
+  --wf-color-surface-dark-rgb: 61, 59, 59; /* #3D3B3B */
+  --wf-color-brand-primary-rgb: 227, 115, 64; /* Slightly brighter Burnt Orange for dark */
+  --wf-color-accent-secondary-rgb: 142, 158, 127; /* Slightly lighter Olive for dark */
+  --wf-color-dark-border-subtle: #504D4D;
+  --wf-color-dark-border-default: #646060;
+  --wf-color-dark-border-strong: #7A7575;
+  --wf-color-dark-text-primary: #F0EAE0;
+  --wf-color-dark-text-secondary: #D8CEC4;
+  --wf-color-dark-text-muted: #B8ADA0;
+  --wf-color-dark-text-disabled: #958C80;
+  --wf-color-dark-text-on-primary: #FFFFFF;
+  --wf-color-dark-text-on-accent-secondary: #FFFFFF;
+  --wf-color-dark-success-rgb: 100, 180, 100;
+  --wf-color-dark-warning-rgb: 255, 180, 50;
+  --wf-color-dark-danger-rgb: 220, 80, 80;
+  --wf-color-dark-info-rgb: 100, 160, 210;
+
+  /* Map generic tokens */
+  --color-brand-primary-rgb: var(--wf-color-brand-primary-rgb);
+  --color-accent-secondary-rgb: var(--wf-color-accent-secondary-rgb);
+  --color-background-rgb: var(--wf-color-bg-dark-rgb);
+  --color-surface-rgb: var(--wf-color-surface-dark-rgb);
+  --color-border-subtle: var(--wf-color-dark-border-subtle);
+  --color-border-default: var(--wf-color-dark-border-default);
+  --color-border-strong: var(--wf-color-dark-border-strong);
+  --color-text-primary: var(--wf-color-dark-text-primary);
+  --color-text-secondary: var(--wf-color-dark-text-secondary);
+  --color-text-muted: var(--wf-color-dark-text-muted);
+  --color-text-disabled: var(--wf-color-dark-text-disabled);
+  --color-text-on-primary-bg: var(--wf-color-dark-text-on-primary);
+  --color-text-on-accent-secondary-bg: var(--wf-color-dark-text-on-accent-secondary);
+  --color-success-rgb: var(--wf-color-dark-success-rgb);
+  --color-warning-rgb: var(--wf-color-dark-warning-rgb);
+  --color-danger-rgb: var(--wf-color-dark-danger-rgb);
+  --color-info-rgb: var(--wf-color-dark-info-rgb);
+  --color-dark-overlay: rgba(var(--wf-color-bg-dark-rgb), 0.7);
+}
+
+/* --- Theme: Tech Minimalist Evolved --- */
+[data-theme="tech-minimalist-light"] {
+  --tm-color-bg-light-rgb: 250, 250, 253; /* #FAFAFD */
+  --tm-color-surface-light-rgb: 248, 249, 250; /* #F8F9FA */
+  --tm-color-brand-primary-rgb: 0, 127, 255; /* Electric Blue: #007FFF */
+  --tm-color-light-border-subtle: #F0F0F5;
+  --tm-color-light-border-default: #E5E5EB;
+  --tm-color-light-border-strong: #D5D5DC;
+  --tm-color-light-text-primary: #1C1C1E;
+  --tm-color-light-text-secondary: #5A5A5F;
+  --tm-color-light-text-muted: #8C8C91;
+  --tm-color-light-text-disabled: #B8B8BD;
+  --tm-color-light-text-on-primary: #FFFFFF;
+  --tm-color-light-success-rgb: var(--tm-color-brand-primary-rgb);
+  --tm-color-light-warning-rgb: 255, 165, 0;
+  --tm-color-light-danger-rgb: 220, 53, 69;
+  --tm-color-light-info-rgb: var(--tm-color-brand-primary-rgb);
+
+  /* Map generic tokens */
+  --font-primary: 'Poppins', sans-serif; /* Ensure correct fonts for this theme */
+  --font-secondary: 'Lato', sans-serif;
+
+  --color-brand-primary-rgb: var(--tm-color-brand-primary-rgb);
+  /* No distinct secondary accent for Tech Minimalist */
+  --color-accent-secondary-rgb: var(--tm-color-light-text-muted); /* Fallback to a muted grey */
+  --color-accent-vibrant-rgb: var(--tm-color-brand-primary-rgb); /* Vibrant is the primary */
+
+  --color-background-rgb: var(--tm-color-bg-light-rgb);
+  --color-surface-rgb: var(--tm-color-surface-light-rgb);
+  --color-border-subtle: var(--tm-color-light-border-subtle);
+  --color-border-default: var(--tm-color-light-border-default);
+  --color-border-strong: var(--tm-color-light-border-strong);
+  --color-text-primary: var(--tm-color-light-text-primary);
+  --color-text-secondary: var(--tm-color-light-text-secondary);
+  --color-text-muted: var(--tm-color-light-text-muted);
+  --color-text-disabled: var(--tm-color-light-text-disabled);
+  --color-text-on-primary-bg: var(--tm-color-light-text-on-primary);
+  --color-success-rgb: var(--tm-color-light-success-rgb);
+  --color-warning-rgb: var(--tm-color-light-warning-rgb);
+  --color-danger-rgb: var(--tm-color-light-danger-rgb);
+  --color-info-rgb: var(--tm-color-light-info-rgb);
+  --color-dark-overlay: rgba(26, 29, 35, 0.8); /* Tech Minimalist dark bg for overlay */
+
+  /* Specific structural overrides for Tech Minimalist if any */
+  --border-radius-sm: 3px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 6px;
+  --border-radius-xl: 8px;
+  --shadow-xs: 0 1px 2px 0 rgba(0,0,0,0.02);
+  --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.03), 0 1px 2px -1px rgba(0,0,0,0.02);
+  --shadow-md: 0 3px 5px -1px rgba(0,0,0,0.04), 0 2px 3px -2px rgba(0,0,0,0.03);
+  --shadow-lg: 0 8px 12px -3px rgba(0,0,0,0.04), 0 3px 5px -4px rgba(0,0,0,0.03);
+  --shadow-xl: 0 15px 20px -5px rgba(0,0,0,0.04), 0 6px 8px -6px rgba(0,0,0,0.03);
+  --shadow-xxl: 0 20px 30px -12px rgba(0,0,0,0.1);
+  --shadow-inner: inset 0 1px 2px 0 rgba(0,0,0,0.03);
+  --transition-duration-short: 150ms;
+  --transition-duration-base: 250ms;
+  --transition-timing-function-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="tech-minimalist-dark"] {
+  --tm-color-bg-dark-rgb: 26, 29, 35; /* #1A1D23 */
+  --tm-color-surface-dark-rgb: 35, 39, 47; /* #23272F */
+  --tm-color-brand-primary-rgb: 0, 127, 255; /* Electric Blue */
+  --tm-color-dark-border-subtle: #30343C;
+  --tm-color-dark-border-default: #40444C;
+  --tm-color-dark-border-strong: #50545C;
+  --tm-color-dark-text-primary: #F0F0F5;
+  --tm-color-dark-text-secondary: #C0C0C5;
+  --tm-color-dark-text-muted: #909095;
+  --tm-color-dark-text-disabled: #606065;
+  --tm-color-dark-text-on-primary: #FFFFFF;
+  --tm-color-dark-success-rgb: var(--tm-color-brand-primary-rgb);
+  --tm-color-dark-warning-rgb: 255, 175, 40;
+  --tm-color-dark-danger-rgb: 239, 83, 80;
+  --tm-color-dark-info-rgb: var(--tm-color-brand-primary-rgb);
+
+  /* Map generic tokens */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Lato', sans-serif;
+
+  --color-brand-primary-rgb: var(--tm-color-brand-primary-rgb);
+  --color-accent-secondary-rgb: var(--tm-color-dark-text-muted); /* Fallback */
+  --color-accent-vibrant-rgb: var(--tm-color-brand-primary-rgb);
+
+  --color-background-rgb: var(--tm-color-bg-dark-rgb);
+  --color-surface-rgb: var(--tm-color-surface-dark-rgb);
+  --color-border-subtle: var(--tm-color-dark-border-subtle);
+  --color-border-default: var(--tm-color-dark-border-default);
+  --color-border-strong: var(--tm-color-dark-border-strong);
+  --color-text-primary: var(--tm-color-dark-text-primary);
+  --color-text-secondary: var(--tm-color-dark-text-secondary);
+  --color-text-muted: var(--tm-color-dark-text-muted);
+  --color-text-disabled: var(--tm-color-dark-text-disabled);
+  --color-text-on-primary-bg: var(--tm-color-dark-text-on-primary);
+  --color-success-rgb: var(--tm-color-dark-success-rgb);
+  --color-warning-rgb: var(--tm-color-dark-warning-rgb);
+  --color-danger-rgb: var(--tm-color-dark-danger-rgb);
+  --color-info-rgb: var(--tm-color-dark-info-rgb);
+  --color-dark-overlay: rgba(var(--tm-color-bg-dark-rgb), 0.8);
+  
+  /* Specific structural overrides for Tech Minimalist if any */
+  --border-radius-sm: 3px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 6px;
+  --border-radius-xl: 8px;
+  --shadow-xs: 0 1px 2px 0 rgba(0,0,0,0.02);
+  --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.03), 0 1px 2px -1px rgba(0,0,0,0.02);
+  --shadow-md: 0 3px 5px -1px rgba(0,0,0,0.04), 0 2px 3px -2px rgba(0,0,0,0.03);
+  --shadow-lg: 0 8px 12px -3px rgba(0,0,0,0.04), 0 3px 5px -4px rgba(0,0,0,0.03);
+  --shadow-xl: 0 15px 20px -5px rgba(0,0,0,0.04), 0 6px 8px -6px rgba(0,0,0,0.03);
+  --shadow-xxl: 0 20px 30px -12px rgba(0,0,0,0.1);
+  --shadow-inner: inset 0 1px 2px 0 rgba(0,0,0,0.03);
+  --transition-duration-short: 150ms;
+  --transition-duration-base: 250ms;
+  --transition-timing-function-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Theme: ChronoWeave (Dark by default) --- */
+[data-theme="chrono-weave-dark"] {
+  /* Fonts */
+  --font-primary: 'Lato', sans-serif;
+  --font-secondary: 'IM Fell English SC', serif; /* Ensure this is imported in _base.css */
+
+  --cw-color-bg-dark-rgb: 12, 22, 39; /* #0C1627 */
+  --cw-color-surface-dark-rgb: 20, 30, 49; /* #141E31 */
+  --cw-color-accent-bioluminescent-rgb: 255, 215, 0; /* Soft Gold */
+  --cw-color-node-earth-rgb: 139, 69, 19;
+  --cw-color-node-forest-rgb: 34, 139, 34;
+  --cw-color-node-stone-rgb: 112, 128, 144;
+  --cw-color-dark-border-subtle: #2E3A4D;
+  --cw-color-dark-border-default: #404E63;
+  --cw-color-dark-border-strong: #53637D;
+  --cw-color-dark-text-primary: #D4D8E0;
+  --cw-color-dark-text-secondary: #A8B0BD;
+  --cw-color-dark-text-muted: #7E8A9C;
+  --cw-color-dark-text-disabled: #5A6575;
+  --cw-color-dark-text-on-accent: #1C1600;
+  --cw-color-dark-danger-node-rgb: 178, 34, 34;
+  --cw-color-dark-warning-node-rgb: 204, 138, 0;
+  --cw-color-dark-success-node-rgb: 60, 120, 60;
+  --cw-color-dark-info-node-rgb: 70, 100, 150;
+  --cw-color-black-rgb: 5, 8, 13; /* For shadows */
+
+
+  /* Map generic tokens */
+  --color-brand-primary-rgb: var(--cw-color-accent-bioluminescent-rgb);
+  /* ChronoWeave might not have a traditional secondary accent */
+  --color-accent-secondary-rgb: var(--cw-color-node-stone-rgb); /* Fallback to a node color */
+  --color-accent-vibrant-rgb: var(--cw-color-accent-bioluminescent-rgb); /* Vibrant is the primary */
+
+
+  --color-background-rgb: var(--cw-color-bg-dark-rgb);
+  --color-surface-rgb: var(--cw-color-surface-dark-rgb);
+  --color-border-subtle: var(--cw-color-dark-border-subtle);
+  --color-border-default: var(--cw-color-dark-border-default);
+  --color-border-strong: var(--cw-color-dark-border-strong);
+  --color-text-primary: var(--cw-color-dark-text-primary);
+  --color-text-secondary: var(--cw-color-dark-text-secondary);
+  --color-text-muted: var(--cw-color-dark-text-muted);
+  --color-text-disabled: var(--cw-color-dark-text-disabled);
+  --color-text-on-primary-bg: var(--cw-color-dark-text-on-accent);
+  
+  --color-danger-rgb: var(--cw-color-dark-danger-node-rgb);
+  --color-warning-rgb: var(--cw-color-dark-warning-node-rgb);
+  --color-success-rgb: var(--cw-color-dark-success-node-rgb);
+  --color-info-rgb: var(--cw-color-dark-info-node-rgb);
+  --color-dark-overlay: rgba(var(--cw-color-bg-dark-rgb), 0.85);
+
+  /* Specific ChronoWeave structural overrides */
+  --font-size-base: 1rem;
+  --font-size-sm: 0.85rem;
+  --font-size-xs: 0.7rem;
+  --font-size-lg: 1.15rem;
+  --font-size-xl: 1.3rem;
+  --font-size-h6: 1.3rem;
+  --font-size-h5: 1.6rem;
+  --font-size-h4: 1.9rem;
+  --font-size-h3: 2.2rem;
+  --font-size-h2: 2.6rem;
+  --font-size-h1: 3rem;
+  --line-height-base: 1.7;
+  --line-height-heading: 1.25;
+  --border-radius-xs: 3px;
+  --border-radius-sm: 5px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 20px;
+  --border-radius-pill: 40px;
+  --shadow-xs: 0 2px 4px 0 rgba(var(--cw-color-black-rgb), 0.2);
+  --shadow-sm: 0 3px 6px 0 rgba(var(--cw-color-black-rgb), 0.25), 0 2px 4px -1px rgba(var(--cw-color-black-rgb), 0.2);
+  --shadow-md: 0 5px 10px -1px rgba(var(--cw-color-black-rgb), 0.3), 0 3px 6px -2px rgba(var(--cw-color-black-rgb), 0.25);
+  --shadow-lg: 0 12px 20px -3px rgba(var(--cw-color-black-rgb), 0.3), 0 5px 10px -4px rgba(var(--cw-color-black-rgb), 0.25);
+  --shadow-xl: 0 20px 30px -5px rgba(var(--cw-color-black-rgb), 0.3), 0 10px 15px -6px rgba(var(--cw-color-black-rgb), 0.25);
+  --shadow-xxl: 0 30px 60px -12px rgba(var(--cw-color-black-rgb), 0.4);
+  --shadow-inner: inset 0 2px 5px 0 rgba(var(--cw-color-black-rgb),0.2);
+  --transition-duration-short: 300ms;
+  --transition-duration-base: 500ms;
+  --transition-timing-function-ease: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Helper: Apply generic RGB-based tokens to their final color vars */
+/* This needs to be done within each theme override block as well if those specific RGBs change */
+[data-theme="focused-elegance-dark"],
+[data-theme="aurora-flow-light"], [data-theme="aurora-flow-dark"],
+[data-theme="warm-focus-light"], [data-theme="warm-focus-dark"],
+[data-theme="tech-minimalist-light"], [data-theme="tech-minimalist-dark"],
+[data-theme="chrono-weave-dark"] {
+  --color-brand-primary: rgb(var(--color-brand-primary-rgb));
+  --color-brand-primary-tint: rgba(var(--color-brand-primary-rgb), 0.1); /* Default tint, can be overridden per theme */
+  --color-brand-primary-shade: color-mix(in srgb, rgb(var(--color-brand-primary-rgb)) 80%, black); /* Default shade */
+
+  --color-accent-secondary: rgb(var(--color-accent-secondary-rgb));
+  --color-accent-secondary-tint: rgba(var(--color-accent-secondary-rgb), 0.1);
+  --color-accent-secondary-shade: color-mix(in srgb, rgb(var(--color-accent-secondary-rgb)) 80%, black);
+
+  --color-accent-vibrant: rgb(var(--color-accent-vibrant-rgb));
+  --color-accent-vibrant-tint: rgba(var(--color-accent-vibrant-rgb), 0.1);
+  --color-accent-vibrant-shade: color-mix(in srgb, rgb(var(--color-accent-vibrant-rgb)) 80%, black);
+
+  --color-background: rgb(var(--color-background-rgb));
+  --color-surface: rgb(var(--color-surface-rgb));
+
+  --color-success: rgb(var(--color-success-rgb));
+  --color-success-bg: rgba(var(--color-success-rgb), 0.1);
+  --color-success-border: rgba(var(--color-success-rgb), 0.3);
+  --color-success-text: color-mix(in srgb, rgb(var(--color-success-rgb)) 60%, var(--color-text-primary) 30%);
+
+
+  --color-warning: rgb(var(--color-warning-rgb));
+  --color-warning-bg: rgba(var(--color-warning-rgb), 0.15);
+  --color-warning-border: rgba(var(--color-warning-rgb), 0.4);
+  --color-warning-text: color-mix(in srgb, rgb(var(--color-warning-rgb)) 70%, var(--color-text-primary) 40%);
+
+
+  --color-danger: rgb(var(--color-danger-rgb));
+  --color-danger-bg: rgba(var(--color-danger-rgb), 0.1);
+  --color-danger-border: rgba(var(--color-danger-rgb), 0.3);
+  --color-danger-text: var(--color-white); /* Often white on danger */
+
+
+  --color-info: rgb(var(--color-info-rgb));
+  --color-info-bg: rgba(var(--color-info-rgb), 0.1);
+  --color-info-border: rgba(var(--color-info-rgb), 0.3);
+  --color-info-text: color-mix(in srgb, rgb(var(--color-info-rgb)) 60%, var(--color-text-primary) 30%);
+}
+
+/* Specific text color adjustments for semantic colors within themes if needed */
+[data-theme="tech-minimalist-light"], [data-theme="tech-minimalist-dark"] {
+  --color-success-text: rgb(var(--color-success-rgb));
+  --color-danger-text: rgb(var(--color-danger-rgb));
+  --color-info-text: rgb(var(--color-info-rgb));
+}
+[data-theme="chrono-weave-dark"] {
+  --color-danger-text: var(--color-dark-text-primary);
+  --color-warning-text: var(--color-dark-text-primary);
+  --color-success-text: var(--color-dark-text-primary);
+  --color-info-text: var(--color-dark-text-primary);
+  --color-brand-primary-shade: color-mix(in srgb, rgb(var(--color-accent-bioluminescent-rgb)) 85%, #000);
+  --color-text-on-primary-bg: var(--cw-color-dark-text-on-accent);
+}

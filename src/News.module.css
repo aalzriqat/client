@@ -1,92 +1,70 @@
-/* General styles for NewsListClient */
+/* src/News.module.css */
+/* Refactored to use design tokens. */
+/* Button styles (.btn, .btnDelete) have been removed; */
+/* The consuming components should be updated to use the new reusable Button component. */
+
 .main {
-  max-width: 600px;
-  margin: 100px auto 20px; /* Added 80px to the top margin */
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  max-width: 600px; /* Consider tokenizing if this is a common container width */
+  margin: var(--space-xxl) auto var(--space-lg); /* Approx 100px -> 48px, 20px -> 24px. Adjust if exact 100px is critical */
+  padding: var(--space-lg); /* Was 20px */
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--transition-duration-base) var(--transition-timing-function);
 }
 
 .main:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg); /* Was a custom shadow, using a token now */
 }
 
 .h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333;
+  font-size: var(--font-size-xxl); /* Was 24px */
+  margin-bottom: var(--space-lg); /* Was 20px */
+  color: var(--color-text); /* Was #333 */
   text-align: center;
 }
 
 .newsItem {
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  padding: 15px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* Gradient using surface and border color for a subtle effect */
+  background: linear-gradient(145deg, var(--color-surface), var(--color-light-mode-border)); 
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-lg); /* Was 20px */
+  padding: var(--space-md); /* Was 15px */
+  transition: transform var(--transition-duration-short) var(--transition-timing-function), 
+              box-shadow var(--transition-duration-short) var(--transition-timing-function);
 }
 
 .newsItem:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px); /* Keep small transform */
+  box-shadow: var(--shadow-lg);
 }
 
 .h3 {
-  font-size: 20px;
-  margin: 0 0 10px;
-  color: #444;
-  font-weight: bold;
+  font-size: var(--font-size-xl); /* Was 20px */
+  margin: 0 0 var(--space-sm); /* Was 10px */
+  color: var(--color-text); /* Was #444 */
+  font-weight: var(--font-bold);
 }
 
 .p {
-  font-size: 16px;
-  color: #606770;
-  margin: 0 0 10px;
-  line-height: 1.5;
+  font-size: var(--font-size-md); /* Was 16px */
+  color: var(--color-text-muted); /* Was #606770 */
+  margin: 0 0 var(--space-sm); /* Was 10px */
+  line-height: var(--line-height-base);
 }
 
-.newsListClient {
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.newsListClient { /* Wrapper for the list, if different from .main */
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
 }
 
-/* Button styles */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  margin-right: 10px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.btnDelete {
-  background-color: #dc3545;
-}
-
-.btnDelete:hover {
-  background-color: #c82333;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+/* Button styles (.btn, .btnDelete) are removed. */
+/* Components using these should be updated to use the new <Button /> component. */
+/* Example: <Button variant="primary" size="small">Action</Button> */
+/* Example: <Button variant="danger" size="small">Delete</Button> */
 
 /* Modal styles */
 .modal {
@@ -95,48 +73,59 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--color-dark-overlay); /* Was rgba(0,0,0,0.5) */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensure this is higher than other elements */
+  z-index: var(--z-index-modal-backdrop); /* Was 1000 */
 }
 
 .modalContent {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  background: var(--color-surface);
+  padding: var(--space-lg); /* Was 20px */
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  width: 400px; /* Consider tokenizing if common */
   max-width: 90%;
-  z-index: 1001; /* Ensure this is higher than other elements */
+  z-index: var(--z-index-modal); /* Was 1001 */
+  color: var(--color-text); /* Ensure text inside modal uses correct color */
 }
 
 .modalContent h2 {
-  margin-top: 0;
+  /* Base h2 styles from _base.css should apply. */
+  /* Add specific overrides if needed, e.g., margin */
+  margin-top: 0; /* Good practice */
+  margin-bottom: var(--space-md); /* Add some space below title */
 }
 
 .modalContent label {
-  display: block;
-  margin-bottom: 10px;
+  /* Base label styles from _base.css should apply. */
+  /* Overrides if needed: */
+  margin-bottom: var(--space-xs); /* Was 10px, now closer to 4px */
 }
 
 .modalContent input,
 .modalContent textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  /* Base input/textarea styles from _base.css will apply. */
+  /* This module previously had specific padding and margin. */
+  /* Rely on base styles for consistency, or add specific overrides here if essential. */
+  margin-bottom: var(--space-md); /* Consistent margin below inputs */
 }
 
-.modalContent .btn {
-  margin-right: 10px;
+/* Styles for buttons inside the modal content, if not using the Button component directly */
+/* If using the Button component, spacing around it should be handled by its container */
+.modalButtonContainer {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: flex-end; /* Or as needed */
+  margin-top: var(--space-md);
 }
 
 /* Error message styles */
 .errorMessage {
-  color: #dc3545;
-  font-weight: bold;
-  margin-bottom: 10px;
+  color: var(--color-danger-alt); /* Was #dc3545, using a defined token */
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-sm); /* Was 10px */
+  font-size: var(--font-size-sm);
+  text-align: center; /* Added for consistency if it's a general message */
 }

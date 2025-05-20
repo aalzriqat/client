@@ -1,0 +1,156 @@
+/* src/components/ReportIssues/ReportIssuesList.module.css */
+
+.listContainer {
+  /* Replaces .report-issue-list-container */
+  padding: var(--space-lg);
+  max-width: 900px; /* Or as needed for a list view */
+  margin: var(--space-lg) auto;
+}
+
+.title { /* For the <h2> */
+  font-size: var(--font-size-h2);
+  color: var(--color-brand-primary);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.message {
+  /* Replaces .report-issue-list-message */
+  margin: var(--space-md) 0;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-sm);
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+.messageSuccess {
+  /* Replaces .report-issue-list-message-success */
+  composes: message;
+  color: var(--color-success);
+  background-color: var(--color-success-light);
+  border: var(--border-width-sm) solid var(--color-success);
+}
+
+.messageError {
+  /* Replaces .report-issue-list-message-error */
+  composes: message;
+  color: var(--color-danger);
+  background-color: color-mix(in srgb, var(--color-danger) 15%, transparent);
+  border: var(--border-width-sm) solid var(--color-danger);
+}
+
+.noIssuesMessage {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-style: italic;
+  padding: var(--space-xl) 0;
+}
+
+.listItem {
+  /* Replaces .report-issue-list-item */
+  border: var(--border-width-sm) solid var(--color-border);
+  border-radius: var(--border-radius-md); /* Was 5px */
+  padding: var(--space-lg); /* Was 15px */
+  margin-bottom: var(--space-lg); /* Was 15px */
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.itemHeader {
+  /* Replaces .report-issue-list-header */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md); /* Was 10px */
+  border-bottom: var(--border-width-sm) solid var(--color-border); /* Was #eee */
+  padding-bottom: var(--space-md); /* Was 10px */
+}
+
+.itemTitle {
+  /* Replaces .report-issue-list-title */
+  font-size: var(--font-size-xl); /* Was 1.2em */
+  font-weight: var(--font-semibold); /* Was bold */
+  color: var(--color-text);
+}
+
+.itemStatus {
+  font-weight: var(--font-bold);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+}
+
+.statusOpen {
+  composes: itemStatus;
+  color: var(--color-white);
+  background-color: var(--color-danger-alt); /* red */
+}
+.statusInProgress {
+  composes: itemStatus;
+  color: var(--color-text); /* Dark text on yellow */
+  background-color: var(--color-warning); /* orange/yellow */
+}
+.statusResolved {
+  composes: itemStatus;
+  color: var(--color-white);
+  background-color: var(--color-success); /* green */
+}
+.statusClosed {
+  composes: itemStatus;
+  color: var(--color-white);
+  background-color: var(--color-text-muted); /* grey */
+}
+
+
+.itemMeta {
+  /* Replaces .report-issue-list-meta */
+  font-size: var(--font-size-sm); /* Was 0.85em */
+  color: var(--color-text-muted); /* Was #555 */
+  margin-bottom: var(--space-xs); /* Was 5px */
+}
+
+.itemDescription {
+  /* Replaces .report-issue-list-description */
+  margin-top: var(--space-md); /* Was 10px */
+  color: var(--color-text);
+  line-height: var(--line-height-base);
+}
+
+.adminNotes {
+  composes: itemMeta; /* Inherit meta styles */
+  margin-top: var(--space-md);
+  font-style: italic;
+  background-color: var(--color-bg); /* Slightly different background for notes */
+  padding: var(--space-sm);
+  border-radius: var(--border-radius-xs);
+}
+
+.adminActions {
+  /* Replaces .report-issue-list-admin-actions */
+  margin-top: var(--space-lg); /* Was 10px */
+  padding-top: var(--space-lg); /* Was 10px */
+  border-top: var(--border-width-sm) dashed var(--color-border); /* Was #eee */
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.adminActionsLabel { /* For "Change Status:" text */
+  font-weight: var(--font-medium);
+}
+
+.statusSelect {
+  /* Replaces .report-issue-list-status-select */
+  /* Base select styles from _base.css apply */
+  /* margin-left: var(--space-sm); Was 10px */
+  padding: var(--space-xs) var(--space-sm); /* Smaller padding for this select */
+  min-width: 150px; /* Give it some default width */
+}
+
+/* .report-issue-list-action-button is replaced by <Button /> */
+/* If specific margin is needed for the button in this context: */
+.updateStatusButton {
+  /* Example: margin-left: var(--space-sm); */
+}

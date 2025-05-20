@@ -1,0 +1,205 @@
+/* src/components/common/Button/Button.module.css */
+
+.button {
+  display: inline-flex; /* Allows for icon alignment */
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-md); /* Default padding */
+  font-family: var(--font-primary);
+  font-size: var(--font-size-md); /* Default size */
+  font-weight: var(--font-medium);
+  border: var(--border-width-sm) solid transparent; /* Border for all, transparent by default */
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap; /* Prevent text wrapping */
+  transition: background-color var(--transition-duration-short) var(--transition-timing-function),
+              border-color var(--transition-duration-short) var(--transition-timing-function),
+              color var(--transition-duration-short) var(--transition-timing-function),
+              opacity var(--transition-duration-short) var(--transition-timing-function),
+              transform var(--transition-duration-short) var(--transition-timing-function);
+  user-select: none; /* Prevent text selection on click */
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-brand-primary); /* Use Warm Focus primary brand for outline */
+  outline-offset: 2px;
+}
+
+.button:disabled,
+.button.disabled { /* Allow for .disabled class as well */
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--color-text-muted) !important; /* Ensure disabled state overrides */
+  border-color: var(--color-text-muted) !important;
+  color: var(--color-white) !important;
+}
+
+/* Variants */
+.primary {
+  background-color: var(--color-brand-primary);
+  color: var(--color-white);
+  border-color: var(--color-brand-primary);
+}
+.primary:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--color-brand-primary) 85%, var(--color-black));
+  border-color: color-mix(in srgb, var(--color-brand-primary) 85%, var(--color-black));
+}
+.primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.secondary { /* For Tech Minimalist, secondary is a light grey button */
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  border-color: var(--color-border-default);
+}
+.secondary:hover:not(:disabled) {
+  background-color: var(--color-border-subtle);
+  border-color: var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+.secondary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.danger {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+  border-color: var(--color-danger);
+}
+.danger:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--color-danger) 85%, var(--color-black));
+  border-color: color-mix(in srgb, var(--color-danger) 85%, var(--color-black));
+}
+.danger:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.success {
+  background-color: var(--color-success); /* Electric blue for success in this theme */
+  color: var(--color-text-on-primary-bg); /* White text on electric blue */
+  border-color: var(--color-success);
+}
+.success:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--color-success) 85%, var(--color-black));
+  border-color: color-mix(in srgb, var(--color-success) 85%, var(--color-black));
+}
+.success:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.warning {
+  background-color: var(--color-warning);
+  color: var(--color-warning-text); /* Use specific warning text color from tokens */
+  border-color: var(--color-warning);
+}
+.warning:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--color-warning) 85%, var(--color-black));
+  border-color: color-mix(in srgb, var(--color-warning) 85%, var(--color-black));
+  color: var(--color-warning-text); /* Use specific warning text color from tokens */
+}
+.warning:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.light {
+  background-color: var(--color-border-default); /* Use the default border color for light button */
+  color: var(--color-text-primary); /* Use primary text color */
+  border-color: var(--color-border-default);
+}
+.light:hover:not(:disabled) {
+  background-color: var(--color-border-strong); /* Darken border color on hover */
+  border-color: var(--color-border-strong);
+}
+.light:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.dark {
+  background-color: var(--color-text-primary); /* Use primary text color for dark button */
+  color: var(--color-surface); /* Use surface color for text on dark button */
+  border-color: var(--color-text-primary);
+}
+.dark:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--color-text-primary) 85%, var(--color-black));
+  border-color: color-mix(in srgb, var(--color-text-primary) 85%, var(--color-black));
+}
+.dark:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* Outline Variants */
+.outlinePrimary {
+  background-color: transparent;
+  color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+}
+.outlinePrimary:hover:not(:disabled) {
+  background-color: var(--color-brand-primary);
+  color: var(--color-white);
+}
+
+.outlineSecondary {
+  background-color: transparent;
+  color: var(--color-text-secondary); /* Muted grey for outline secondary */
+  border-color: var(--color-border-default);
+}
+.outlineSecondary:hover:not(:disabled) {
+  background-color: var(--color-border-subtle);
+  color: var(--color-text-primary);
+}
+
+.outlineDanger {
+  background-color: transparent;
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+.outlineDanger:hover:not(:disabled) {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+}
+
+/* Ghost Variant (minimal, often for icon buttons or subtle actions) */
+.ghost {
+  background-color: transparent;
+  color: var(--color-brand-primary);
+  border-color: transparent;
+}
+.ghost:hover:not(:disabled) {
+  background-color: var(--color-brand-primary-tint); /* Use primary tint for hover */
+  color: var(--color-brand-primary);
+}
+
+
+/* Sizes */
+.small {
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-sm);
+}
+
+.large {
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-size-lg);
+}
+
+/* Full Width */
+.fullWidth {
+  display: block;
+  width: 100%;
+}
+
+/* Icon handling */
+.icon {
+  display: inline-block;
+  line-height: 0; /* Prevents extra space if icon is taller than text */
+}
+
+.iconLeft {
+  margin-right: var(--space-sm);
+}
+
+.iconRight {
+  margin-left: var(--space-sm);
+}

@@ -1,0 +1,32 @@
+/* src/styles/main.css */
+/* Main CSS entry point. Imports foundational style partials. */
+
+/* 1. Design Tokens: CSS custom properties for theming and consistency. */
+@import './_tokens.css';
+
+/* 2. Base Styles: Resets, global element styling, and font imports. */
+@import './_base.css';
+
+/* 3. Utility Classes: Reusable helper classes for common styling patterns. */
+@import './_utilities.css';
+
+/* 
+  Further global styles or overrides specific to the overall application layout 
+  (that don't fit into tokens, base, or utilities) can be added here if necessary.
+  However, aim to keep this file minimal and delegate most styling to component modules.
+*/
+
+/* Example: Global body class for dark mode toggle (if not handled by JS directly on html/body) */
+/*
+body.dark-theme {
+  background-color: var(--color-dark-mode-bg);
+  color: var(--color-dark-mode-text);
+}
+*/
+
+/* Example: Global link styling if not covered sufficiently in _base.css */
+/*
+a {
+  font-weight: var(--font-weight-medium);
+}
+*/

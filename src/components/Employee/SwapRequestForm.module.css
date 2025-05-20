@@ -1,0 +1,74 @@
+/* src/components/Employee/SwapRequestForm.module.css */
+
+.swapRequestContainer {
+  /* Replaces .main.manage-leave-main */
+  max-width: 800px; /* Forms can be wider */
+  margin: var(--space-xl) auto;
+  padding: var(--space-xl);
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.formTitle {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-semibold);
+  color: var(--color-brand-primary);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.scheduleInfo {
+  /* Replaces .schedule-info */
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+  background-color: var(--color-bg); /* Use background color for contrast */
+  border-radius: var(--border-radius-sm);
+  border: var(--border-width-sm) solid var(--color-border);
+  line-height: var(--line-height-loose);
+}
+
+.scheduleInfoLabel {
+  /* Replaces .label */
+  font-weight: var(--font-bold);
+  color: var(--color-text); /* Was #333 */
+  font-size: var(--font-size-md); /* Was 1.1em */
+  margin-right: var(--space-sm);
+}
+
+.scheduleInfoValue {
+  /* Replaces .value */
+  color: var(--color-text-muted); /* Was #555 */
+  font-size: var(--font-size-md);
+}
+
+.infoText { /* For the "Select an available shift..." text */
+  color: var(--color-success); /* Was #4CAF50 */
+  margin-bottom: var(--space-lg);
+  text-align: center;
+  font-size: var(--font-size-md);
+}
+
+.successMessage {
+  /* Replaces .success-message */
+  color: var(--color-success);
+  font-weight: var(--font-bold);
+  margin-top: var(--space-lg);
+  text-align: center;
+  padding: var(--space-md);
+  background-color: var(--color-success-light);
+  border: var(--border-width-sm) solid var(--color-success);
+  border-radius: var(--border-radius-sm);
+}
+
+.errorMessage { /* For formValidationError and createSwapError */
+  color: var(--color-danger);
+  font-weight: var(--font-bold);
+  margin-top: var(--space-lg);
+  text-align: center;
+  padding: var(--space-md);
+  background-color: color-mix(in srgb, var(--color-danger) 15%, transparent); /* Light red */
+  border: var(--border-width-sm) solid var(--color-danger);
+  border-radius: var(--border-radius-sm);
+}

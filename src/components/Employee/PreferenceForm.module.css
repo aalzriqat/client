@@ -1,0 +1,83 @@
+/* src/components/Employee/PreferenceForm.module.css */
+
+.preferenceFormContainer {
+  /* Replaces .main.preference-form-container */
+  max-width: 700px; /* Adjust as needed for wider forms */
+  margin: var(--space-xl) auto;
+  padding: var(--space-xl);
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.formWrapper {
+  /* Replaces .form1 - if .form1 had specific styles beyond a generic form container */
+  /* For now, assuming it's mainly a structural div */
+}
+
+.formTitle {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-semibold);
+  color: var(--color-brand-primary);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg); /* Increased gap for better separation of form groups */
+}
+
+.formGroup { /* Optional: if you want to group label + input/select/textarea */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+/* Input, select, textarea will use base styles from _base.css */
+/* Add specific overrides here if needed for this form */
+.label {
+  /* Base styles from _base.css apply */
+  font-weight: var(--font-medium); /* Ensure labels are distinct */
+}
+
+.selectField,
+.textareaField {
+  /* Base styles apply. Add specific styling if PreferenceForm inputs differ. */
+  /* For example, if textareas need a different default height: */
+  /* min-height: 120px; */
+}
+
+.selectField:disabled,
+.textareaField:disabled {
+  background-color: var(--color-light-mode-border);
+  cursor: not-allowed;
+}
+
+.formActionsCentered {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-lg); /* Space above the button */
+}
+
+.submissionMessage {
+  margin-top: var(--space-md);
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+.submissionMessageSuccess {
+  color: var(--color-success);
+}
+
+.submissionMessageError {
+  color: var(--color-danger);
+}
+
+.fetchWarningMessage { /* For the "Note: Could not refresh..." message */
+  color: var(--color-warning); /* Using warning color token */
+  margin-top: var(--space-md);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}

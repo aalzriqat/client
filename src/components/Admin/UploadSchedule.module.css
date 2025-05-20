@@ -1,0 +1,106 @@
+/* src/components/Admin/UploadSchedule.module.css */
+/* Redesigned for "Focused Elegance" */
+
+.pageContainer { /* Replaces .main.upload-container - provides overall padding if needed */
+  padding: var(--space-lg); /* Or let AdminDashboard.module.css .mainContent handle padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content card */
+  gap: var(--space-xl);
+}
+
+.contentCard { /* A card to hold both instructions and the form */
+  width: 100%;
+  max-width: 700px; /* Max width for the content area */
+  padding: var(--space-xl) var(--space-xxl);
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: var(--border-width-sm) solid var(--color-border-subtle);
+}
+
+.instructionsSection { /* Replaces .description */
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: var(--border-width-sm) solid var(--color-border-subtle);
+}
+
+.instructionsTitle { /* For <h2> */
+  font-size: var(--font-size-h3);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.instructionsList { /* For <ul> */
+  list-style-type: disc;
+  padding-left: var(--space-lg);
+  color: var(--color-text-secondary);
+}
+
+.instructionsListItem { /* For <li> */
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-base);
+}
+
+.form { /* Replaces .form1 */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.formLabel { /* For <label> */
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-xs); /* Space between label and input */
+}
+
+.fileInputContainer { /* Optional: if more styling around file input is needed */
+  /* For custom styled file input, more complex HTML/CSS might be needed */
+}
+
+.fileInput { /* Replaces .file-label - basic styling for now */
+  /* Base input styles from _base.css will apply if type="file" is targeted there */
+  /* For more custom styling, often involves hiding the default input and styling a label */
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  padding: var(--space-sm);
+  border: var(--border-width-sm) dashed var(--color-border-default); /* Dashed border for dropzone feel */
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-background); /* Slightly different bg */
+  cursor: pointer;
+}
+
+.fileInput:hover {
+  border-color: var(--color-brand-primary);
+}
+
+/* .upload-button is replaced by the Button component */
+.submitButtonContainer {
+  margin-top: var(--space-md);
+  display: flex;
+  justify-content: flex-start; /* Or center/flex-end */
+}
+
+.message { /* Base for success/error messages */
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+.successMessage { /* Replaces .upload-message */
+  composes: message;
+  color: var(--color-success-text);
+  background-color: var(--color-success-bg);
+  border: var(--border-width-sm) solid var(--color-success-border);
+}
+
+.errorMessage { /* Replaces .upload-error-message for localError and uploadError */
+  composes: message;
+  color: var(--color-danger-text);
+  background-color: var(--color-danger-bg);
+  border: var(--border-width-sm) solid var(--color-danger-border);
+}

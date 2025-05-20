@@ -1,0 +1,60 @@
+CSS Refactoring and Adjustment Notes (Post-Modernization Task)
+
+This document outlines CSS-related changes and considerations arising from the TypeScript and Redux Toolkit modernization of the scheduler/client application.
+
+1. Removed HTML 'align' Attribute:
+   The `align` HTML attribute, previously used for centering text or elements, is not standard for the tags it was on and has been removed from several components. CSS should now be used for centering.
+
+   Affected Files and Elements:
+   - File: ../client/src/components/Users/Login.tsx
+     - Elements: `<p className="form-title">`, `<p className="forgot">`
+     - CSS Action: Ensure `.form-title` and `.forgot` classes (or their parent containers) apply `text-align: center;` or use flexbox/grid for centering.
+
+   - File: ../client/src/components/Users/Register.tsx
+     - Elements: `<p className="form-title">`, `<p className="forgot">`
+     - CSS Action: Similar to Login.tsx, ensure relevant classes handle centering. Verify if input placeholders previously relied on `align`.
+
+   - File: ../client/src/components/Employee/PreferenceForm.tsx
+     - Element: Submit button.
+     - CSS Action: The button's class or its parent container should manage centering (e.g., `display: block; margin-left: auto; margin-right: auto;` or flexbox centering).
+
+2. Review Inline Styles for Migration to CSS Files:
+   Numerous components now contain inline `style={{...}}` attributes, often added for expediency during refactoring or present in newly created components. For better maintainability, consistency, and separation of concerns, these should be reviewed and migrated to dedicated CSS classes in appropriate stylesheets (e.g., `App.css`, `style.css`, `News.module.css`, or new component-specific CSS/module files).
+
+   Components with notable inline styles to review:
+    - ../client/src/components/common/Notifications.tsx (internal `styles` object)
+    - ../client/src/components/ReportIssues/ReportIssuesForm.tsx (internal `formStyle`, `formGroupStyle`, etc.)
+    - ../client/src/components/ReportIssues/ReportIssuesList.tsx (internal `styles` object)
+    - ../client/src/components/Admin/AdminAnalyticsDashboard.tsx (internal `styles` object)
+    - ../client/src/components/Employee/EmployeeAnalyticsDashboard.tsx (internal `styles` object)
+    - ../client/src/components/common/Sidebar.tsx (e.g., `iconStyle`, button style, `ul` style)
+    - ../client/src/components/common/SearchInput.tsx (default input padding/margin)
+    - ../client/src/components/common/LoadingMessage.tsx (default paragraph style)
+    - ../client/src/components/common/ErrorMessage.tsx (default paragraph style)
+    - ../client/src/components/common/GlobalSpinner.tsx (`spinnerOverlayStyle` object)
+    - ../client/src/components/common/SelectFilter.tsx (container div style)
+    - ../client/src/components/Admin/AllSchedules.tsx (e.g., `controls-bar`, input, button styles)
+    - ../client/src/components/Admin/AllPreferences.tsx (e.g., `controls-bar`, input, button styles)
+    - ../client/src/components/Admin/LeaveRequests.tsx (e.g., `controls-bar`, input, button styles, `actionMessage` style)
+    - ../client/src/components/Admin/UploadSchedule.tsx (e.g., button, message styles)
+    - ../client/src/components/Admin/NewsForm.tsx (e.g., `actionMessage`, `formActions` styles)
+    - ../client/src/components/Admin/NewsListAdmin.tsx (e.g., `actionMessage`, `subHeader`, list, item, `dateMeta`, `adminActions` styles)
+    - ../client/src/components/Employee/ManageLeaveRequests.tsx (e.g., button, message, modal styles)
+    - ../client/src/components/common/LandingTitle.tsx (paragraph style for `minHeight` and `transition`)
+
+3. Verify CSS Class Definitions and Selectors:
+   Many components rely on CSS classes for styling (e.g., `.form-title`, `.btn`, `.btn-primary`, `.search-input`, `.main`, `.dashboard`, `.modal-overlay`, `.modal-content`, etc.).
+
+   Action Required:
+   - Thoroughly review all `.tsx` components for `className="..."` attributes.
+   - Confirm that each referenced CSS class is defined in the project's stylesheets (`App.css`, `style.css`, `News.module.css`, or other relevant CSS/SCSS/SASS files).
+   - Ensure the styles applied by these classes are as intended and consistent with the application's design.
+   - Some class names might have been assumed based on common patterns or carried over from the old structure. New components might require entirely new CSS rules.
+   - Pay special attention to layout classes (`.main`, `.dashboard`, `.all-requests-container`, etc.), form styling (`.form1`, `.form2`, `.form-group`, `.input-text`, `.btn`), modal styling (`.modal`, `.modal-overlay`), and list/table styling.
+
+4. CSS Modules:
+   - `News.module.css` is used by `NewsListClient.tsx`, `AdminNewsPage.tsx`, `NewsForm.tsx`, and `NewsListAdmin.tsx`. Ensure its styles are appropriate and correctly scoped.
+   - A `custom.d.ts` file was added to provide TypeScript typings for `.module.css` imports. This can be extended for `.module.scss` or `.module.sass` if those are used.
+
+General Recommendation:
+A systematic review of the application's appearance and a pass over the CSS files to align them with the refactored component structure would be beneficial. This ensures that the UI remains consistent and that all styling is intentional and maintainable. Consider organizing CSS into component-specific modules where appropriate for better encapsulation.

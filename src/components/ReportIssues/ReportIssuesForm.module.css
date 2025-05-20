@@ -1,0 +1,84 @@
+/* src/components/ReportIssues/ReportIssuesForm.module.css */
+
+.formContainer {
+  /* Replaces .report-issue-form-container */
+  padding: var(--space-lg);
+  border: var(--border-width-sm) solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-surface); /* Was #f9f9f9, using surface now */
+  max-width: 600px; /* Or as needed */
+  margin: var(--space-lg) auto; /* Center the form */
+  box-shadow: var(--shadow-md);
+}
+
+.formTitle { /* For the <h3>Report an Issue</h3> */
+  font-size: var(--font-size-h3);
+  color: var(--color-brand-primary);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.message {
+  /* Replaces .report-issue-form-message */
+  margin-top: 0; /* Reset margin if it's the first element after title */
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-sm);
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+.messageSuccess {
+  /* Replaces .report-issue-form-message-success */
+  composes: message;
+  color: var(--color-success);
+  background-color: var(--color-success-light);
+  border: var(--border-width-sm) solid var(--color-success);
+}
+
+.messageError {
+  /* Replaces .report-issue-form-message-error */
+  composes: message;
+  color: var(--color-danger);
+  background-color: color-mix(in srgb, var(--color-danger) 15%, transparent);
+  border: var(--border-width-sm) solid var(--color-danger);
+}
+
+.formGroup {
+  /* Replaces .report-issue-form-group */
+  margin-bottom: var(--space-lg); /* Was 15px */
+}
+
+.label {
+  /* Replaces .report-issue-form-label */
+  display: block;
+  margin-bottom: var(--space-xs); /* Was 5px */
+  font-weight: var(--font-medium); /* Was bold */
+}
+
+/* Input, Textarea, Select will use base styles from _base.css */
+/* .report-issue-form-input, .report-issue-form-textarea, .report-issue-form-select */
+/* Add specific overrides here if these form elements need to look different */
+.inputField,
+.textareaField,
+.selectField {
+  /* Base styles apply. Add specific styling if these form elements differ. */
+  /* For example, if they need a different border color by default for this form: */
+  /* border-color: var(--color-accent-blue-light); */
+}
+
+.inputField:disabled,
+.textareaField:disabled,
+.selectField:disabled {
+  background-color: var(--color-light-mode-border);
+  cursor: not-allowed;
+}
+
+.submitButtonContainer { /* Optional: if you need to wrap the button for layout */
+  margin-top: var(--space-lg);
+  display: flex;
+  justify-content: flex-end; /* Or center, or as needed */
+}
+
+/* The Button component will handle its own styling. */
+/* .report-issue-form-button is replaced by <Button variant="primary"> */

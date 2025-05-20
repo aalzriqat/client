@@ -1,0 +1,137 @@
+/* src/components/common/Sidebar.module.css */
+/* Redesigned for "Focused Elegance" */
+
+.sidebar {
+  position: fixed;
+  top: 64px; /* Match Navbar's new min-height */
+  left: 0;
+  height: calc(100vh - 64px); /* Full height minus Navbar */
+  background: var(--color-surface); /* Solid surface color */
+  z-index: var(--z-index-sidebar);
+  font-family: var(--font-secondary); /* Lato */
+  transition: width var(--transition-duration-base) var(--transition-timing-function-ease);
+  overflow-x: hidden;
+  border-right: var(--border-width-sm) solid var(--color-border-default); /* Consistent border */
+  display: flex;
+  flex-direction: column; /* Align toggle button and menu vertically */
+  box-shadow: var(--shadow-sm); /* Subtle shadow */
+}
+
+.sidebarExpanded {
+  width: 240px; /* Slightly wider for more comfortable text */
+}
+
+.sidebarCollapsed {
+  width: 72px; /* Accommodate icons and a bit of padding */
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+.sidebar {
+  scrollbar-width: none; /* For Firefox */
+}
+
+.sidebarToggleBtn {
+  background: transparent;
+  border: none;
+  font-size: var(--font-size-lg); /* Icon size */
+  padding: var(--space-md); 
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  display: flex; /* Align icon within button */
+  align-items: center;
+  justify-content: center; /* Center icon when collapsed */
+  width: 100%; 
+  height: 56px; /* Give it a defined height */
+  border-bottom: var(--border-width-sm) solid var(--color-border-subtle); /* Separator */
+  transition: background-color var(--transition-duration-fast) var(--transition-timing-function-ease), 
+              color var(--transition-duration-fast) var(--transition-timing-function-ease);
+}
+
+.sidebarExpanded .sidebarToggleBtn {
+  justify-content: flex-end; /* Push to right when expanded */
+  padding-right: var(--space-lg);
+}
+
+
+.sidebarToggleBtn:hover {
+  color: var(--color-brand-primary);
+  background-color: var(--color-brand-primary-tint);
+}
+
+.sidebarMenu {
+  list-style: none;
+  padding: var(--space-sm) 0; /* Padding for the overall menu */
+  margin: 0;
+  overflow-y: auto; /* Allow menu to scroll if content exceeds height */
+  flex-grow: 1; /* Allow menu to take remaining space */
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-lg); 
+  text-decoration: none;
+  color: var(--color-text-secondary); /* Default link color */
+  margin: var(--space-xs) var(--space-sm); /* Margin around links */
+  border-radius: var(--border-radius-md); /* Softer radius */
+  white-space: nowrap; 
+  overflow: hidden; 
+  transition: background-color var(--transition-duration-fast) var(--transition-timing-function-ease), 
+              color var(--transition-duration-fast) var(--transition-timing-function-ease),
+              box-shadow var(--transition-duration-fast) var(--transition-timing-function-ease);
+  font-weight: 500; /* Medium weight for nav links */
+}
+
+.sidebarLink:hover {
+  background-color: var(--color-brand-primary-tint);
+  color: var(--color-brand-primary);
+}
+
+.sidebarLinkActive { /* For React Router NavLink activeClassName */
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-on-primary-bg) !important; /* Ensure text is readable on primary bg */
+  font-weight: 600; /* Bolder for active state */
+  box-shadow: var(--shadow-xs);
+}
+
+.sidebarLinkActive .sidebarIcon {
+ color: var(--color-text-on-primary-bg) !important; /* Icon color matches text on active */
+}
+
+.sidebarIcon {
+  display: flex; /* Use flex to center icon if it has varying widths */
+  align-items: center;
+  justify-content: center;
+  width: 24px; 
+  min-width: 24px; /* Ensure space for icon even if text is hidden */
+  height: 24px;
+  font-size: var(--font-size-lg); /* Icon size */
+  color: var(--color-text-muted); /* Default icon color, slightly muted */
+  transition: margin-right var(--transition-duration-base) var(--transition-timing-function-ease), 
+              color var(--transition-duration-fast) var(--transition-timing-function-ease);
+}
+
+.sidebarExpanded .sidebarIcon {
+  margin-right: var(--space-md); 
+}
+
+.sidebarCollapsed .sidebarIcon {
+  margin-right: 0; /* No margin when collapsed, text is hidden */
+}
+
+.sidebarLinkText {
+  opacity: 0;
+  visibility: hidden; /* Hide completely when collapsed */
+  transition: opacity var(--transition-duration-fast) var(--transition-timing-function-ease) var(--transition-duration-fast), /* Delay opacity transition */
+              visibility 0s linear var(--transition-duration-base); /* Delay visibility change */
+  font-size: var(--font-size-sm);
+  line-height: 1.2; /* Ensure text fits well */
+}
+
+.sidebarExpanded .sidebarLinkText {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s; /* No delay when expanding */
+}

@@ -1,0 +1,29 @@
+/* src/components/Employee/EmployeeDashboard.module.css */
+
+.dashboardLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: var(--space-lg);
+  margin-left: 220px; /* Default for expanded sidebar */
+  margin-top: 60px; /* Account for fixed Navbar height */
+  transition: margin-left var(--transition-duration-base) var(--transition-timing-function);
+  overflow-y: auto;
+  height: calc(100vh - 60px);
+  box-sizing: border-box;
+}
+
+.mainContentCollapsed {
+  margin-left: 70px; /* For collapsed sidebar */
+}
+
+.pageTitle {
+  font-size: var(--font-size-h1);
+  color: var(--color-brand-primary);
+  margin-bottom: var(--space-lg);
+  font-weight: var(--font-semibold);
+}

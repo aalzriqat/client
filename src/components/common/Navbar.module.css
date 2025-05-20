@@ -1,0 +1,227 @@
+/* src/components/common/Navbar.module.css */
+/* Redesigned for "Focused Elegance" */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--space-lg); /* Vertical padding handled by min-height and align-items */
+  min-height: 64px; /* Slightly taller for better presence */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0; /* Ensure it spans full width */
+  z-index: var(--z-index-sticky);
+  background-color: var(--color-surface); /* Solid background */
+  border-bottom: var(--border-width-sm) solid var(--color-border-default); /* Subtle border */
+  color: var(--color-text-primary); /* Text color from new palette */
+  box-sizing: border-box;
+  box-shadow: var(--shadow-sm); /* Subtle shadow for elevation */
+}
+
+.logoLink { /* Was .logoNavbar */
+  font-family: var(--font-secondary); /* Using Lato for a cleaner logo text */
+  font-size: var(--font-size-xl); 
+  font-weight: 700; /* Bold */
+  color: var(--color-brand-primary); /* Use brand color for logo */
+  text-decoration: none;
+  transition: opacity var(--transition-duration-fast) var(--transition-timing-function-ease);
+  display: flex;
+  align-items: center;
+}
+
+.logoLink:hover {
+  opacity: 0.8;
+}
+
+/* Optional: If you have an actual SVG logo */
+.logoIcon {
+  width: var(--space-xl); /* 32px */
+  height: var(--space-xl);
+  margin-right: var(--space-sm);
+  color: var(--color-brand-primary); /* Or specific logo color */
+}
+
+.navItemsContainer { /* New container for right-aligned items */
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg); /* Consistent gap */
+}
+
+.username {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md); /* Gap between individual links/icons */
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li {
+  display: flex;
+  align-items: center;
+  position: relative; /* For popups and dropdowns */
+}
+
+.navLinkItem, /* For actual links */
+.navActionItem { /* For icon buttons */
+  display: flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-md); /* Softer radius */
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-colors), background-color var(--transition-duration-fast) var(--transition-timing-function-ease);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+}
+
+.navLinkItem:hover,
+.navActionItem:hover {
+  color: var(--color-brand-primary);
+  background-color: var(--color-brand-primary-tint);
+}
+
+.navLinkItem:active,
+.navActionItem:active {
+  background-color: rgba(var(--color-brand-primary-rgb), 0.15); /* Slightly darker tint on active */
+}
+
+.navLinkItem.active { /* For NavLink active state */
+  color: var(--color-brand-primary); /* Use primary brand color for active link */
+  font-weight: 600;
+  position: relative;
+}
+
+.navLinkItem.active::after { /* Add a bottom border accent */
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: var(--space-sm);
+  right: var(--space-sm);
+  height: 2px;
+  background-color: var(--color-brand-primary); /* Use primary brand color for accent */
+  border-radius: 1px;
+}
+
+.icon { /* General style for icons in navbar actions */
+  font-size: var(--font-size-lg); /* 18px */
+  /* color is inherited from .navActionItem */
+}
+
+.popupForm {
+  position: absolute;
+  top: calc(100% + var(--space-sm)); 
+  right: 0; 
+  background-color: var(--color-surface);
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-lg); /* Larger radius for popups */
+  box-shadow: var(--shadow-xl); /* More prominent shadow for popups */
+  z-index: var(--z-index-popover);
+  width: 320px; 
+  color: var(--color-text-primary);
+  border: var(--border-width-sm) solid var(--color-border-default);
+}
+
+.notifications { /* The <li> container for notification icon */
+  /* position: relative; (already on li) */
+}
+
+.notificationCount {
+  position: absolute;
+  top: calc(var(--space-xs) * -0.5); /* Adjust for better positioning on icon */
+  right: calc(var(--space-xs) * -0.5);
+  background-color: var(--color-danger); /* This uses the generic --color-danger */
+  color: var(--color-white);
+  border-radius: var(--border-radius-round);
+  padding: 0 var(--space-xs); /* Horizontal padding */
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-bold);
+  line-height: 1.5; /* Adjust line height for small text */
+  min-width: calc(var(--font-size-xs) + var(--space-xs) * 2); /* Ensure it's somewhat circular */
+  height: calc(var(--font-size-xs) + var(--space-xs) * 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-surface); /* Border to make it pop from icon */
+}
+
+.notificationDropdown {
+  position: absolute;
+  top: calc(100% + var(--space-sm)); 
+  right: 0;
+  width: 300px; /* Wider dropdown */
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: var(--color-surface);
+  border: var(--border-width-sm) solid var(--color-border-default);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+  z-index: var(--z-index-dropdown);
+  color: var(--color-text-primary);
+}
+
+.notificationDropdown p { /* Example content styling */
+  padding: var(--space-md);
+  text-align: center;
+  margin: 0;
+  font-size: var(--font-size-sm);
+}
+
+.swapToggleContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.swapToggleLabel {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+/* Re-using Button component for toggle is an option, or a dedicated Switch component */
+/* For now, styling the existing toggle structure with new tokens */
+.toggleBtn {
+  width: 44px; /* Slightly smaller */
+  height: 24px;
+  border-radius: var(--border-radius-pill);
+  position: relative;
+  background-color: var(--color-border-strong); /* Default off state */
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-duration-fast) var(--transition-timing-function-ease);
+}
+
+.toggleBtn.toggled {
+  background-color: var(--color-success); 
+}
+
+.thumb {
+  width: 20px; /* Adjust thumb size */
+  height: 20px;
+  border-radius: var(--border-radius-round);
+  background: var(--color-white);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left var(--transition-duration-fast) var(--transition-timing-function-ease);
+  box-shadow: var(--shadow-xs);
+}
+
+.toggleBtn.toggled .thumb {
+  left: calc(44px - 20px - 2px); /* width - thumbWidth - offset */
+}
+
+.logoutIcon { /* For the icon within the logout link/button */
+  margin-left: var(--space-sm);
+}

@@ -1,0 +1,229 @@
+/* src/styles/_base.css */
+/* Imports fonts, provides a CSS reset, and basic HTML element styling. */
+
+/* 1. FONT IMPORTS */
+/* Consolidolidating font imports from App.css and style.css */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&family=Zilla+Slab+Highlight&display=swap');
+
+/* 2. CSS RESET */
+/* A more comprehensive reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove list styles on ul, ol elements with a role attribute */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: var(--line-height-base);
+  font-family: var(--font-primary), var(--font-fallback);
+  background-color: var(--color-background); /* Updated to generic token */
+  color: var(--color-text-primary); /* Updated to generic token */
+  overflow-x: hidden; /* From style.css */
+}
+
+/* Make images and other media easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove default form styling */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none; /* Remove default borders */
+  outline: none; /* Remove default outlines */
+  background: none; /* Remove default backgrounds */
+  color: inherit; /* Inherit text color */
+}
+
+button {
+  cursor: pointer;
+  padding: 0; /* Remove default padding */
+}
+
+/* Make sure SVGs are not focusable by default */
+svg:not([fill]) {
+  fill: currentColor;
+}
+
+
+/* 3. BASE HTML ELEMENT STYLING */
+html {
+  font-size: var(--font-size-base); /* Updated to new base token */
+  scroll-behavior: smooth;
+}
+
+a {
+  color: var(--color-brand-primary);
+  text-decoration: none;
+  transition: color var(--transition-duration-short) var(--transition-timing-function-ease); /* Updated timing function */
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  color: var(--color-brand-primary-shade); /* Use darker shade of primary */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary), var(--font-fallback);
+  font-weight: 600; /* Slightly less heavy default for modern look, can be overridden */
+  line-height: var(--line-height-heading); /* Use specific heading line height */
+  color: var(--color-text-primary); /* Updated to generic token */
+  margin-bottom: var(--space-md); /* Increased default bottom margin for headings */
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-xxl); }
+h5 { font-size: var(--font-size-xl); }
+h6 { font-size: var(--font-size-lg); }
+
+p {
+  margin-bottom: var(--space-md);
+  color: var(--color-text-primary); /* Updated to generic token */
+}
+
+ul,
+ol {
+  list-style-position: inside;
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-md); /* Indent lists */
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}
+
+/* Basic table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-sm);
+}
+
+th,
+td {
+  border: var(--border-width-sm) solid var(--color-border-default); /* Updated to specific border token */
+  padding: var(--space-sm);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: var(--color-surface);
+  font-weight: 600; /* Match heading weight */
+  color: var(--color-text-primary);
+}
+
+/* Form elements base */
+label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+  color: var(--color-text-secondary); /* Labels can be secondary text color */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border: var(--border-width-sm) solid var(--color-border-default); /* Updated to specific border token */
+  border-radius: var(--border-radius-md); /* Slightly softer radius */
+  background-color: var(--color-surface);
+  color: var(--color-text-primary); /* Updated to generic token */
+  transition: border-color var(--transition-duration-short) var(--transition-timing-function-ease), /* Updated timing function */
+              box-shadow var(--transition-duration-short) var(--transition-timing-function-ease); /* Updated timing function */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-brand-primary);
+  box-shadow: 0 0 0 3px var(--color-brand-primary-tint); /* Updated focus ring to use primary tint */
+  outline: none; /* Ensure no default browser outline interferes */
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E"); /* Use currentColor for fill */
+  color: var(--color-text-muted); /* Set initial color for the SVG arrow */
+  background-repeat: no-repeat;
+  background-position: right var(--space-md) center; /* Adjusted position */
+  background-size: 1.5em;
+  padding-right: calc(var(--space-sm) + 1.5em + var(--space-sm)); /* Adjust padding for arrow */
+}
+
+/* Basic scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background); /* Updated to generic token */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default); /* Use a border color for thumb */
+  border-radius: var(--border-radius-pill);
+  border: 2px solid var(--color-background); /* Create a 'track' around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted); /* Darken on hover */
+}
+
+/* Selection highlight */
+::selection {
+  background-color: var(--color-brand-primary);
+  color: var(--color-white);
+}

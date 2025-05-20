@@ -1,0 +1,37 @@
+/* src/components/common/ThemeSelector/ThemeSelector.module.css */
+
+.themeSelectorContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) 0; /* Add some padding if it's directly in navbar */
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.select {
+  /* Base select styles from _base.css will apply */
+  padding: var(--space-xs) var(--space-sm); /* Smaller padding for navbar context */
+  border-radius: var(--border-radius-md);
+  border: var(--border-width-sm) solid var(--color-border-default);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  min-width: 180px; /* Give it some space */
+  transition: var(--transition-colors);
+}
+
+.select:hover {
+  border-color: var(--color-brand-primary);
+}
+
+.select:focus {
+  /* Focus styles from _base.css will apply (border-color, box-shadow) */
+  border-color: var(--color-brand-primary); /* Ensure focus is clear */
+}

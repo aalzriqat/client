@@ -1,0 +1,66 @@
+/* src/components/Admin/AdminAnalyticsDashboard.module.css */
+
+.dashboardContainer {
+  /* Replaces .admin-analytics-dashboard-container */
+  padding: var(--space-lg); /* Default padding from mainContent of AdminDashboard */
+  /* If this component is meant to be a full page within the dashboard, 
+     it might not need its own max-width or margin auto. 
+     It will fill the space provided by AdminDashboard.module.css .mainContent */
+}
+
+.pageTitle { /* For the <h2>Admin Analytics Dashboard</h2> */
+  font-size: var(--font-size-h2); /* Match .pageTitle in AdminDashboard.module.css if consistent */
+  color: var(--color-brand-secondary); /* Different color for variety or use primary */
+  margin-bottom: var(--space-xl);
+  text-align: center; /* Or left, as preferred */
+}
+
+.section {
+  /* Replaces .admin-analytics-section */
+  margin-bottom: var(--space-xl); /* Was 30px */
+  padding: var(--space-lg); /* Was 15px */
+  border: var(--border-width-sm) solid var(--color-border); /* Was #eee */
+  border-radius: var(--border-radius-md); /* Was 5px */
+  background-color: var(--color-surface); /* Was #fff */
+  box-shadow: var(--shadow-sm);
+}
+
+.sectionTitle {
+  /* Replaces .admin-analytics-section-title */
+  margin-top: 0;
+  border-bottom: var(--border-width-sm) solid var(--color-border); /* Was #ddd */
+  padding-bottom: var(--space-md); /* Was 10px */
+  font-size: var(--font-size-h3); /* Was 1.4em */
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.dataPoint {
+  /* Replaces .admin-analytics-data-point */
+  margin: var(--space-sm) 0; /* Was 8px 0 */
+  font-size: var(--font-size-md); /* Was 1em */
+  color: var(--color-text-muted);
+}
+
+.dataPoint strong { /* If you want to emphasize parts of the data point */
+  color: var(--color-text);
+  font-weight: var(--font-medium);
+}
+
+.list { /* For ul elements */
+  list-style-position: inside;
+  padding-left: var(--space-sm); /* Indent list items slightly */
+}
+
+.listItem { /* For li elements inside .list, if they need specific styling beyond .dataPoint */
+  composes: dataPoint; /* Inherit dataPoint styles */
+  /* Add specific list item styles if needed */
+}
+
+.note { /* For <small> tags or general notes */
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-md);
+  display: block; /* Make it block for better spacing */
+  text-align: center;
+}

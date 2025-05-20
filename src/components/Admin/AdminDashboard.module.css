@@ -1,0 +1,44 @@
+/* src/components/Admin/AdminDashboard.module.css */
+
+.dashboardLayout {
+  display: flex;
+  min-height: 100vh; /* Ensure it takes full viewport height */
+  background-color: var(--color-bg); /* Use background token */
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: var(--space-lg); /* Default padding */
+  /* 
+    The Sidebar component itself is fixed position.
+    The margin-left here needs to correspond to the Sidebar's width.
+    We'll use CSS variables that can be set by the Sidebar component or a global state
+    if the sidebar width is dynamic and needs to be communicated.
+    For now, assuming a fixed width for expanded and collapsed states,
+    matching the Sidebar.module.css values.
+  */
+  margin-left: 220px; /* Default margin for expanded sidebar (src/components/common/Sidebar.module.css -> .sidebarExpanded width) */
+  margin-top: 60px; /* Account for fixed Navbar height */
+  transition: margin-left var(--transition-duration-base) var(--transition-timing-function);
+  overflow-y: auto; /* Allow content to scroll if it exceeds viewport height */
+  height: calc(100vh - 60px); /* Full height minus navbar */
+  box-sizing: border-box;
+}
+
+/* 
+  This class would be dynamically added to mainContent if the sidebar is collapsed.
+  The parent component (AdminDashboard.tsx) would need to know the sidebar's state.
+  Alternatively, the Sidebar could expose a CSS variable for its current width.
+*/
+.mainContentCollapsed {
+  margin-left: 70px; /* Margin for collapsed sidebar (src/components/common/Sidebar.module.css -> .sidebarCollapsed width) */
+}
+
+.pageTitle { /* A common style for page titles within the dashboard content area */
+  font-size: var(--font-size-h1);
+  color: var(--color-brand-primary);
+  margin-bottom: var(--space-lg);
+  font-weight: var(--font-semibold);
+}
+
+/* Add other common dashboard content styles here if needed */
